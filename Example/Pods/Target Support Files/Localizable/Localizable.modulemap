@@ -1,0 +1,6 @@
+framework module Localizable {
+  umbrella header "Localizable-umbrella.h"
+
+  export *
+  module * { export * }
+}

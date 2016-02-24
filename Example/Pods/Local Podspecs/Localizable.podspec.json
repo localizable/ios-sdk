@@ -1,0 +1,25 @@
+{
+  "name": "Localizable",
+  "version": "0.1.0",
+  "summary": "A short description of Localizable.",
+  "description": "",
+  "homepage": "https://github.com/ivanbruel/Localizable",
+  "license": "MIT",
+  "authors": {
+    "Ivan Bruel": "ivan.bruel@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ivanbruel/Localizable.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "Localizable": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

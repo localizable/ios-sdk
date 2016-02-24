@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Localizable
+
+  Created by Ivan Bruel on 24/02/16.
+  Copyright © 2016 CocoaPods. All rights reserved.
+*/
+
+"Testing" = "Je suis le test";

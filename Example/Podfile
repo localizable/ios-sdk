@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'Localizable_Example', :exclusive => true do
+  pod 'Localizable', :path => '../'
+end
+
+target 'Localizable_Tests', :exclusive => true do
+  pod 'Localizable', :path => '../'
+
+  pod 'Quick', '~> 0.8.0'
+  pod 'Nimble', '3.0.0'
+end
