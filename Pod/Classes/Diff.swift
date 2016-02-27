@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Diff {
+struct Diff: CustomStringConvertible {
   let code: String
   let update: [String: String]
   let remove: [String]
@@ -43,5 +43,9 @@ struct Diff {
       "update": update,
       "remove": remove
     ]
+  }
+
+  var description: String {
+    return "\(code) updated: \(update) removed:\(remove)"
   }
 }

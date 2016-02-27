@@ -70,6 +70,7 @@ extension Language {
     return loadLanguageFromDisk(defaultLanguageCode())
   }
 
+  // When language is removed, simulator needs to reset otherwise removed language still shows here
   private class func availableLanguageCodes() -> [String] {
     return NSBundle.mainBundle().localizations
   }
@@ -192,7 +193,8 @@ extension Language {
     guard let diffs = localizableVersionDiffs() else {
       return
     }
-    Logger.logInfo("Detected Localizable.strings changes: \(diffs)")
+    Logger.logInfo("Detected Localizable.strings changes:")
+    diffs.forEach { Logger.logInfo($0.description) }
     saveAppLanguages()
     Network.sharedInstance.performRequest(.UploadLanguages(diffs: diffs), token: token) {
       (_, error) -> Void in
