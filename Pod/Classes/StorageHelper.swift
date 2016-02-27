@@ -46,7 +46,8 @@ class StorageHelper: NSObject {
 
 }
 
-extension StorageHelper {
+// MARK: Helpers
+private extension StorageHelper {
 
   private class func pathForFilename(filename: String) -> String? {
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)

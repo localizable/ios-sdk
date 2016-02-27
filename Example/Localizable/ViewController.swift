@@ -23,10 +23,20 @@ class ViewController: UIViewController {
   }
 
   @IBAction func clicked() {
-    Localizable.refresh { () -> Void in
+    Localizable.update { () -> Void in
       print(Localizable.stringForKey("Testing"))
     }
   }
 
 }
 
+enum Localized {
+  case Testing
+
+  var string: String {
+    switch self {
+    case .Testing:
+      return Localizable.stringForKey("Testing")
+    }
+  }
+}

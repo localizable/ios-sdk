@@ -10,47 +10,54 @@ import Foundation
 
 enum API {
 
-  case Language(code: String)
+  case UpdateLanguage(language: Language)
+  case UploadLanguages(diff: [String: AnyObject])
   case Usage(code: String)
 
   var method: Method {
     switch self {
-    case .Language:
+    case .UpdateLanguage:
       return .GET
-    case .Usage:
+    case .Usage, .UploadLanguages:
       return .POST
     }
   }
 
   var path: String {
     switch self {
-    case .Language(let code):
-      return "languages/\(code)"
+    case .UpdateLanguage(let language):
+      return "languages/\(language.code)"
     case .Usage(let code):
       return "usage/\(code)"
+    case .UploadLanguages:
+      return "languages"
     }
   }
 
   var json: [String: AnyObject]? {
     switch self {
-    case .Language:
-      return nil
+    case .UpdateLanguage(let language):
+      return ["version": language.version]
     case .Usage:
       return nil
+    case .UploadLanguages(let diff):
+      return diff
     }
   }
 
   var sampleData: [String: AnyObject]? {
     switch self {
-    case .Language:
-      return ["code": "en",
-      "localized_strings": [
-        "Testing": "Ay ay ay caramba \(NSDate().description)"
+    case .UpdateLanguage(let language):
+      return [
+        "code": language.code,
+        "version": language.version + 1,
+        "localized_strings": [
+          "Testing": "Ay ay ay caramba \(language.version)"
         ]
       ]
-    case .Usage:
-      return [:]
+    case .Usage, .UploadLanguages:
+      return nil
     }
   }
-
+  
 }

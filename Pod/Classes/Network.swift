@@ -37,6 +37,16 @@ private extension Network {
   private func performRequest(method: Method = .GET, url: String, token: String,
     sampleData: [String: AnyObject]?, json: [String: AnyObject]? = nil,
     completion: (([String: AnyObject]?, NSError?) -> Void)? = nil) {
+
+      var url = url
+
+      if let json = json where method == .GET {
+        let queryString = json.map { "\($0.0)=\($0.1.description)"}.joinWithSeparator("&")
+        if queryString.characters.count > 0 {
+          url = "\(url)?\(queryString)"
+        }
+      }
+
       guard let requestURL = NSURL(string: url) else {
         Logger.logError("Invalid url \(url)")
         return
@@ -49,7 +59,7 @@ private extension Network {
       request.addValue("Token \(token)", forHTTPHeaderField: "Authorization")
       request.HTTPMethod = method.rawValue
 
-      if let json = json {
+      if let json = json where method != .GET {
         do {
           request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
         } catch {

@@ -25,6 +25,7 @@
 		254822540AEFBE8A2C0AA5DDD2F6380D /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E3634125A20B9BA58962919B08DDC /* Closures.swift */; };
 		2C322997DB021113EAD79C5B48F6B684 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA1EFFE836005E11B9D420692E9E50C /* Example.swift */; };
 		2D3B916F7168E9412EDB95BA203A5BB4 /* ThrowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC0728045ED4D4A2C12B52A561EEF7 /* ThrowError.swift */; };
+		30653F0D1C82266400AABDE5 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30653F0C1C82266400AABDE5 /* Diff.swift */; };
 		30EBCDA6C1E4CCD831A13D2C64C4E58D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = D4E0D7E2D11371A45CB3D1221E7B4EC2 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31A35E68C98ECE9E1A602D23E928EB10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
 		33264C6A7A3536AD91EF42B3E8CC8220 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03BB6589A73F51F073DF050F55D7F41 /* BeGreaterThanOrEqualTo.swift */; };
@@ -169,6 +170,7 @@
 		2B9040AB08CA7AEB727960E284F746A4 /* DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Nimble/DSL.swift; sourceTree = "<group>"; };
 		2FE24AE8654BDA8234080C23F6335E26 /* BeEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeEmpty.swift; path = Nimble/Matchers/BeEmpty.swift; sourceTree = "<group>"; };
 		2FEF0C2EE05910BE3E5B999399193002 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		30653F0C1C82266400AABDE5 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 		31E6050F98D5FA6434253B1200D00030 /* Pods-Localizable_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Localizable_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		33DD2CC5441C4540A072B29E4A257A9D /* DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Quick/DSL/DSL.swift; sourceTree = "<group>"; };
 		38715BF4570032AE706B97AB11365E48 /* ExampleMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleMetadata.swift; path = Quick/ExampleMetadata.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				4636B6CC6660B99C5C882901B17B0816 /* Network.swift */,
 				84A4A19E477761D30DA8CB46D0DFE408 /* StorageHelper.swift */,
 				2FEF0C2EE05910BE3E5B999399193002 /* UserDefaultsHelper.swift */,
+				30653F0C1C82266400AABDE5 /* Diff.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -876,6 +879,7 @@
 				95D7F256B4CA2ED0B75FE85D64B3B7C6 /* Localizable-dummy.m in Sources */,
 				83415ED92AF468B775D821099B89365C /* Localizable.swift in Sources */,
 				1A54B10B9B8DB30393D89832786F6D10 /* Logger.swift in Sources */,
+				30653F0D1C82266400AABDE5 /* Diff.swift in Sources */,
 				3FF537415ADD22B422366A6B93A4D9DE /* LogLevel.swift in Sources */,
 				53C407227DE8BAC95B9E6A50626531AE /* Method.swift in Sources */,
 				7C21F7B9BBE59067ECDBE58A02A27808 /* Network.swift in Sources */,

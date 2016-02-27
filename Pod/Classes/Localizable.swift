@@ -24,14 +24,15 @@ public class Localizable: NSObject {
 
   public class func setup(token token: String) {
     self.token = token
+    Language.upload(token)
   }
 
-  public class func refresh(completion: (() -> Void)? = nil) {
+  public class func update(completion: (() -> Void)? = nil) {
     guard let token = token else {
       Logger.logError("Cannot refresh without setting a token")
       return
     }
-    language.refresh(token) { _ in
+    language.update(token) { _ in
       completion?()
     }
   }

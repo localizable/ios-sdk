@@ -9,49 +9,56 @@
 import Foundation
 
 // MARK: Properties and Initializer
-class Language: NSObject {
+class Language {
 
-  private static let baseBundle = "Base"
+  private static let baseLanguage = "Base"
   private static let defaultLanguage = "en"
 
   let code: String
+  var version: Int
   var localizedStrings: [String: String]
 
-  init(code: String, localizedStrings: [String: String]) {
+  init(code: String, version: Int, localizedStrings: [String: String]) {
     self.code = code
+    self.version = version
     self.localizedStrings = localizedStrings
   }
+}
+
+// MARK: Strings
+extension Language {
 
   func stringForKey(key: String) -> String {
     return localizedStrings[key] ?? fallbackStringForKey(key) ?? key
   }
 
-  private func fallbackStringForKey(key: String) -> String? {
-    if let path = NSBundle.mainBundle().pathForResource(code, ofType: "lproj"),
-      bundle = NSBundle(path: path) {
-        return bundle.localizedStringForKey(key, value: nil, table: nil)
+  subscript(key: String) -> String {
+    get {
+      return stringForKey(key)
     }
-    else if let path = NSBundle.mainBundle().pathForResource(Language.baseBundle, ofType: "lproj"),
-      bundle = NSBundle(path: path) {
-        return bundle.localizedStringForKey(key, value: nil, table: nil)
-    }
-
-    return nil
   }
+
+  private func fallbackStringForKey(key: String) -> String? {
+    return AppHelper.stringForKey(key, languageCode: code) ??
+      AppHelper.stringForKey(key, languageCode: Language.baseLanguage)
+  }
+
 }
 
 // MARK: Storage
-extension Language {
+private extension Language {
 
-  func save() {
-    StorageHelper.saveObject(["code": self.code, "localized_strings": localizedStrings], filename: code)
+  private func save(fromApp: Bool = false) {
+    let name = fromApp ? "app_\(code)" : code
+    StorageHelper.saveObject(json, filename: name)
   }
 
-  private class func loadLanguageFromDisk(code: String) -> Language {
-    guard let json: [String: AnyObject] = StorageHelper.loadObject(code) else {
-      return Language(code: code, localizedStrings: [:])
+  private class func loadLanguageFromDisk(code: String, fromApp: Bool = false) -> Language {
+    let name = fromApp ? "app_\(code)" : code
+    guard let json: [String: AnyObject] = StorageHelper.loadObject(name) else {
+      return Language(code: code, version: 0, localizedStrings: [:])
     }
-    return Language(json: json) ?? Language(code: code, localizedStrings: [:])
+    return Language(json: json) ?? Language(code: code, version: 0, localizedStrings: [:])
   }
 
 }
@@ -72,11 +79,84 @@ extension Language {
       return Language.defaultLanguage
     }
 
-    if availableLanguageCodes().contains(preferredLanguage) {
-      return preferredLanguage
+    guard availableLanguageCodes().contains(preferredLanguage) else {
+      return Language.defaultLanguage
     }
 
-    return Language.defaultLanguage
+    return preferredLanguage
+  }
+
+}
+
+// MARK: App
+extension Language {
+
+  private class func languageDiff() -> [String: AnyObject]? {
+    let appLanguages = Language.appLanguages()
+    let oldAppLanguages = Language.oldAppLanguages()
+
+    // pair up same languages
+    let languageDifferences = appLanguages.flatMap { language -> (Language, Language)? in
+      guard let olderLanguage =
+        oldAppLanguages.filter({ _ in language.code == language.code }).first else {
+          return nil
+      }
+      return (language, olderLanguage)
+      }.flatMap { $0.0.diff($0.1) }
+
+    let newLanguages = appLanguages.filter { language in
+      oldAppLanguages.filter { $0.code == language.code }.count == 0
+    }
+
+    guard languageDifferences.count > 0 || newLanguages.count > 0 else {
+      return nil
+    }
+
+    var languages: [[String: AnyObject]] = newLanguages.map {
+      ["code": $0.code, "update": $0.localizedStrings]
+    }
+    languages += languageDifferences.map { $0.json }
+
+    return ["languages": languages]
+  }
+
+  private class func saveAppLanguages() {
+    appLanguages().forEach { $0.save(true) }
+  }
+
+  private class func appLanguages() -> [Language] {
+    return availableLanguageCodes()
+      .map {
+        Language(code: $0, version: 0, localizedStrings: AppHelper.stringsForLanguageCode($0))
+    }
+  }
+
+  private class func oldAppLanguages() -> [Language] {
+    return availableLanguageCodes().map { loadLanguageFromDisk($0, fromApp: true) }
+  }
+
+}
+
+// MARK: Comparing
+extension Language {
+
+  private func diff(olderLanguage: Language) -> Diff? {
+    guard code == olderLanguage.code else {
+      return nil
+    }
+
+    let update = localizedStrings.flatMap { (key, value) in
+      olderLanguage[key] == value ? nil : (key, value)
+      }.reduce([String: String]()) { (var dict, pair) in
+        dict[pair.0] = pair.1
+        return dict
+    }
+
+    let remove = olderLanguage.localizedStrings.flatMap { (key, value) in
+      self.localizedStrings[key] == nil ? key : nil
+    }
+
+    return Diff(code: code, update: update, remove: remove)
   }
 
 }
@@ -85,26 +165,50 @@ extension Language {
 extension Language {
 
   convenience init?(json: [String: AnyObject]) {
-
-    guard let code = json["code"] as? String else {
+    guard let code = json["code"] as? String, version = json["version"] as? Int else {
       return nil
     }
 
     let localizedStrings = json["localized_strings"] as? [String: String] ?? [:]
 
-    self.init(code: code, localizedStrings: localizedStrings)
+    self.init(code: code, version: version, localizedStrings: localizedStrings)
   }
 
-  func refresh(token: String, completion: ((NSError?) -> Void)?) {
-    Network.sharedInstance.performRequest(.Language(code: code), token: token) { (json, error) in
-      guard let localizedStrings = json?["localized_strings"] as? [String: String] else {
-        completion?(error)
-        return
+  var json: [String: AnyObject] {
+    return [
+      "code": code,
+      "version": version,
+      "localized_strings": localizedStrings
+    ]
+  }
+
+  func update(token: String, completion: ((NSError?) -> Void)?) {
+    Network.sharedInstance.performRequest(.UpdateLanguage(language: self), token: token) {
+      (json, error) in
+
+      guard let localizedStrings = json?["localized_strings"] as? [String: String],
+        version = json?["version"] as? Int, code = json?["code"] as? String
+        where code == self.code else {
+          completion?(error)
+          return
       }
+
+      self.version = version
       self.localizedStrings = localizedStrings
       self.save()
       completion?(error)
     }
   }
 
+  class func upload(token: String) {
+    guard let diff = languageDiff() else {
+      return
+    }
+    saveAppLanguages()
+    Network.sharedInstance.performRequest(.UploadLanguages(diff: diff), token: token) {
+      (_, error) -> Void in
+
+    }
+  }
+  
 }
