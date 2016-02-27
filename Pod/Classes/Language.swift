@@ -91,33 +91,45 @@ extension Language {
 // MARK: App
 extension Language {
 
-  private class func languageDiff() -> [String: AnyObject]? {
+  class func detectMissingStrings() {
+    let allKeys = Set(Language.appLanguages().map { $0.localizedStrings.keys }.flatten())
+
+    let missing = Language.appLanguages().flatMap { language -> (Language, [String])? in
+      let missingKeys = allKeys.filter { !language.localizedStrings.keys.contains($0) }
+      guard missingKeys.count > 0 else {
+        return nil
+      }
+      return (language, missingKeys)
+    }
+
+    guard missing.count > 0 else {
+      return
+    }
+
+    Logger.logInfo("Missing strings:")
+    missing.forEach { (language, keys) -> () in
+      Logger.logInfo("\(language.code): \(keys)")
+    }
+  }
+
+  private class func localizableVersionDiffs() -> [Diff]? {
     let appLanguages = Language.appLanguages()
     let oldAppLanguages = Language.oldAppLanguages()
 
     // pair up same languages
     let languageDifferences = appLanguages.flatMap { language -> (Language, Language)? in
-      guard let olderLanguage =
-        oldAppLanguages.filter({ _ in language.code == language.code }).first else {
+      guard let olderLanguage = oldAppLanguages
+        .filter({ olderLanguage in olderLanguage.code == language.code }).first else {
           return nil
       }
       return (language, olderLanguage)
-      }.flatMap { $0.0.diff($0.1) }
+      }.flatMap { Diff(newLanguage: $0.0, oldLanguage: $0.1) }
 
-    let newLanguages = appLanguages.filter { language in
-      oldAppLanguages.filter { $0.code == language.code }.count == 0
-    }
-
-    guard languageDifferences.count > 0 || newLanguages.count > 0 else {
+    guard languageDifferences.count > 0 else {
       return nil
     }
 
-    var languages: [[String: AnyObject]] = newLanguages.map {
-      ["code": $0.code, "update": $0.localizedStrings]
-    }
-    languages += languageDifferences.map { $0.json }
-
-    return ["languages": languages]
+    return languageDifferences
   }
 
   private class func saveAppLanguages() {
@@ -133,30 +145,6 @@ extension Language {
 
   private class func oldAppLanguages() -> [Language] {
     return availableLanguageCodes().map { loadLanguageFromDisk($0, fromApp: true) }
-  }
-
-}
-
-// MARK: Comparing
-extension Language {
-
-  private func diff(olderLanguage: Language) -> Diff? {
-    guard code == olderLanguage.code else {
-      return nil
-    }
-
-    let update = localizedStrings.flatMap { (key, value) in
-      olderLanguage[key] == value ? nil : (key, value)
-      }.reduce([String: String]()) { (var dict, pair) in
-        dict[pair.0] = pair.1
-        return dict
-    }
-
-    let remove = olderLanguage.localizedStrings.flatMap { (key, value) in
-      self.localizedStrings[key] == nil ? key : nil
-    }
-
-    return Diff(code: code, update: update, remove: remove)
   }
 
 }
@@ -201,11 +189,12 @@ extension Language {
   }
 
   class func upload(token: String) {
-    guard let diff = languageDiff() else {
+    guard let diffs = localizableVersionDiffs() else {
       return
     }
+    Logger.logInfo("Detected Localizable.strings changes: \(diffs)")
     saveAppLanguages()
-    Network.sharedInstance.performRequest(.UploadLanguages(diff: diff), token: token) {
+    Network.sharedInstance.performRequest(.UploadLanguages(diffs: diffs), token: token) {
       (_, error) -> Void in
 
     }

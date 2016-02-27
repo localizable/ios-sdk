@@ -11,7 +11,7 @@ import Foundation
 enum API {
 
   case UpdateLanguage(language: Language)
-  case UploadLanguages(diff: [String: AnyObject])
+  case UploadLanguages(diffs: [Diff])
   case Usage(code: String)
 
   var method: Method {
@@ -41,7 +41,7 @@ enum API {
     case .Usage:
       return nil
     case .UploadLanguages(let diff):
-      return diff
+      return ["languages": diff.map { $0.json }]
     }
   }
 

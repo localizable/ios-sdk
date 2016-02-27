@@ -24,6 +24,7 @@ public class Localizable: NSObject {
 
   public class func setup(token token: String) {
     self.token = token
+    Language.detectMissingStrings()
     Language.upload(token)
   }
 
