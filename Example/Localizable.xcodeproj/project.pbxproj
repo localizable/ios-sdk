@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		304783A11C8285CC003F496B /* LocalizableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304783A01C8285CC003F496B /* LocalizableString.swift */; };
 		30F0CE301C7D3C7B0045F0EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30F0CE321C7D3C7B0045F0EE /* Localizable.strings */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		304783A01C8285CC003F496B /* LocalizableString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableString.swift; sourceTree = "<group>"; };
 		306C776A1C8232D8003E708C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		306C776B1C8232D9003E708C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		306C776C1C8232D9003E708C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		607FACD21AFB9204008FA782 /* Example for Localizable */ = {
 			isa = PBXGroup;
 			children = (
+				304783A01C8285CC003F496B /* LocalizableString.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -174,6 +177,7 @@
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Localizable_Example" */;
 			buildPhases = (
 				B54952DF79A3902FD96976E3 /* Check Pods Manifest.lock */,
+				306C77721C82616A003E708C /* Localizable */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
@@ -286,6 +290,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Localizable_Tests/Pods-Localizable_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		306C77721C82616A003E708C /* Localizable */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Localizable;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/../../Pod/run\" \"${SRC_ROOT}${PROJECT}\"";
+		};
 		A65578A9CD933F016B47EE70 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				304783A11C8285CC003F496B /* LocalizableString.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

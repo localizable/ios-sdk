@@ -38,8 +38,12 @@ public class Localizable: NSObject {
     }
   }
 
-  public class func stringForKey(key: String) -> String {
-    return language.stringForKey(key)
+  public class func stringForKey(key: String, _ arguments: String...) -> String {
+    guard arguments.count > 0 else {
+      return language.stringForKey(key)
+    }
+    return String(format: language.stringForKey(key),
+      arguments: arguments.map { $0 as CVarArgType} )
   }
-
+  
 }

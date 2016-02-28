@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		027F095B832252A03C1B1CAD0240AD38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
 		02BF9988CC94A01E7CB6049694390020 /* NMBExceptionCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 40FBD52025077E5788ADCE71EF040393 /* NMBExceptionCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02DF5BD2281BA10105A447F95FCF8CF3 /* BeLogical.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011BCE1507648ECA7586CF7DABF6F4C /* BeLogical.swift */; };
 		0492354DA7EF0C9068F7B4E8F74001B0 /* FailureMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25961731CF4F7537A5ECD61A000A150C /* FailureMessage.swift */; };
@@ -16,16 +15,16 @@
 		0A6E71555F55082003A3DB2B03CA85D2 /* AsyncMatcherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D42013D479CDC11E7882C7C0045B66B /* AsyncMatcherWrapper.swift */; };
 		0F49254A4C560DD4696936F6080756DC /* Nimble-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF4AE1E80CC4EA4F2E1FF17CA10A3D26 /* Nimble-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		103930A44D8043B05CC1105478ACFC7D /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2543809E4D3D9755B94735346ACDFF03 /* QCKDSL.m */; };
-		19F9C598037EB7BB61406E4E45D72118 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF81E4C80F756D0B14D9A0ECD0EDD9C /* AppHelper.swift */; };
-		1A54B10B9B8DB30393D89832786F6D10 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05994338D2881A6FF57D833ECC78F263 /* Logger.swift */; };
+		128295FC59DEC4FDD911492F7930BCCB /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADC7F51E69F7EEDB452DF60B7B2F50 /* Language.swift */; };
+		1BDFD0C195F182A9D09C4A6B9B83222E /* Localizable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD344DBF31D1D2812FEF245E5AAD1FC /* Localizable-dummy.m */; };
 		1E28F9362956B758C4C981D3C1129C90 /* BeGreaterThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD67A0263B5D926517C112081F48B2 /* BeGreaterThan.swift */; };
 		2075CC328BAA598750C8C6D4D61716A4 /* World+DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A039912FDC46FCB2AF6DCEEB91ADB4 /* World+DSL.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		23B21E405552FE7E893BE0356404E3C9 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF0C2EE05910BE3E5B999399193002 /* UserDefaultsHelper.swift */; };
+		233F30181151C984CF41C15C44D3DB9B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94DF47C50AE611BCB9A3D134132B15A /* Network.swift */; };
 		24B2D9D7425E8DB19C44D53A71F137B1 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D6E41BA9F922E7BBD3A24B7E5D00A /* Callsite.swift */; };
 		254822540AEFBE8A2C0AA5DDD2F6380D /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E3634125A20B9BA58962919B08DDC /* Closures.swift */; };
+		29C02A03C18966A2F74C6092857C0A07 /* Localizable-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AF83A449E970CB700083DFEE20470E3B /* Localizable-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2C322997DB021113EAD79C5B48F6B684 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA1EFFE836005E11B9D420692E9E50C /* Example.swift */; };
 		2D3B916F7168E9412EDB95BA203A5BB4 /* ThrowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC0728045ED4D4A2C12B52A561EEF7 /* ThrowError.swift */; };
-		30653F0D1C82266400AABDE5 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30653F0C1C82266400AABDE5 /* Diff.swift */; };
 		30EBCDA6C1E4CCD831A13D2C64C4E58D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = D4E0D7E2D11371A45CB3D1221E7B4EC2 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31A35E68C98ECE9E1A602D23E928EB10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
 		33264C6A7A3536AD91EF42B3E8CC8220 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03BB6589A73F51F073DF050F55D7F41 /* BeGreaterThanOrEqualTo.swift */; };
@@ -33,51 +32,52 @@
 		3A92AEE86034356AF8987F20EE1F82DF /* EndWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8B6303CCFDEBF93094E92D50CAFF38 /* EndWith.swift */; };
 		3AEAC447B09E7AABC140654C8529BC94 /* MatcherFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43EEEBE209F0CF242FBC231937E6922 /* MatcherFunc.swift */; };
 		3CB5650E0A7428CBDD9250BB6F56B122 /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA3CDE7515A11BE56C6C2FE5FB65D8 /* World+DSL.swift */; };
-		3FF537415ADD22B422366A6B93A4D9DE /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56E06E2060C4FCC9EF51135F1BFC736 /* LogLevel.swift */; };
+		44B07334A491AA70E0C28B4623A1D563 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619D9EB75435F77E4554E96C41869171 /* Localizable.swift */; };
 		44F9502D232BFC12AFDF1C621FF91CBA /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 8880B82EFD81A0D6EE2BBD27A39D61BA /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49602DCE1BB06642C2D4C750B179E807 /* Pods-Localizable_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AB9A06BB5582FAB5222DDE444F7962D2 /* Pods-Localizable_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49B3F809644FB2C9FD47ADA9F69DF94E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A115EAB336A3E569F32B333770918 /* Logger.swift */; };
 		4CC16B11F07AB07518ABBA620C7C0EAD /* QuickConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = F1D4A64A54F414359EC782444B27597B /* QuickConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E87C6AE24AB15700A39FC24A2F1C93B /* BeLessThanOrEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12C6F645E5DC0EDB23023A394F1CB1 /* BeLessThanOrEqual.swift */; };
 		512DFAE728521F02AF225F0082195DCC /* Nimble.h in Headers */ = {isa = PBXBuildFile; fileRef = 784135A9193F0FE38182AF2C577B3A52 /* Nimble.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		53C407227DE8BAC95B9E6A50626531AE /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFA166EB4D72C9B7A5C7F8CB5B4148 /* Method.swift */; };
-		58441B9F8E32B386EC77B37AC23E00EB /* Localizable-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3AC1B1E8E1BB58C97CC2B1DF36D55E /* Localizable-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		57B3A5BE848627039FB3F80E4EC30D74 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0111B0CEDC6129E682A51920DDA3D9 /* LogLevel.swift */; };
+		5876C6EF1495E3A815B8B498267C9424 /* run in Sources */ = {isa = PBXBuildFile; fileRef = E0C638D125C00A97A201599EC529A4C6 /* run */; };
 		58EBA2C1A43283FB2188AB1FB592D32B /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9040AB08CA7AEB727960E284F746A4 /* DSL.swift */; };
+		66A1DA74B22589CB01BFADE768223393 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FB577D402261E8D63EB066B3170BF /* Diff.swift */; };
 		66B8FEF46ED3ED2E890F37BE22D29138 /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2005F86F2C2D05CDE00BB78EF02D6D4 /* ExampleGroup.swift */; };
 		69B496F60AA0E624A9F597BC7B3C5CE2 /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 20ABC5A3D02301EC1EC014B6ABEFA42A /* NSString+QCKSelectorName.m */; };
+		6CBC0DDD5D336EB6854A4B949D8C18C3 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43BD1AE7077023ECA3535B8D305D4B /* UserDefaultsHelper.swift */; };
 		71B8E9AE1B676EF2B834EA44D11B69FE /* SuiteHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F0BEE5B67844F0E333920C2CB3416C /* SuiteHooks.swift */; };
 		73695FA6A6CDFBB13C0CC73C2E5126C0 /* Nimble-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E9634CF58B22F95DF5AA222CDAF9B8 /* Nimble-dummy.m */; };
 		7680F08C43B965EC873D26E6AD854C9F /* BeIdenticalTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A1AA2E4CDFA7B6FD9B4F253CAF481F /* BeIdenticalTo.swift */; };
-		76F6620B2D061BE0085F7E9DB8DE8418 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19C9081E819BE17BCE23BBB6FAE14B /* API.swift */; };
 		77128C0365A98E3BAC038A915B38791C /* BeAKindOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B53DF3C5B85F993313E9FA09386C167 /* BeAKindOf.swift */; };
 		791DDA07781039F05197CAE494ABDF16 /* Pods-Localizable_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73E5FE06F46193D1FAD369FF81AC5B36 /* Pods-Localizable_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A6E2730A25A55D8DFA74D3D7CB005EF /* BeAnInstanceOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13064CC241598F189B1341470994F9D9 /* BeAnInstanceOf.swift */; };
 		7BFD25B1BB1116D8AC47E2C3874C5B76 /* ObjCMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B922FF75D982F502B345AE30399F97 /* ObjCMatcher.swift */; };
-		7C21F7B9BBE59067ECDBE58A02A27808 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636B6CC6660B99C5C882901B17B0816 /* Network.swift */; };
 		7DA9FF8513AA48310B15A0744A541818 /* SourceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930275AC98E3FD0F3BC81A7D08B8591 /* SourceLocation.swift */; };
 		831D33A4C5C5BBC1EC158D9A236C61D7 /* NimbleXCTestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5596CB4CEA7B7B71461C9ECE75263656 /* NimbleXCTestHandler.swift */; };
-		83415ED92AF468B775D821099B89365C /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F616C7BE151E60ADE104CE0912A1596 /* Localizable.swift */; };
 		8593D9DE84B58913236BDEB7FDFEB29D /* ExampleHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F8C281E400A6FABAD082CEA7263B2A /* ExampleHooks.swift */; };
 		8882CBD04FD694C46257826E73E0B5D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
 		8D0BF52FF564A170A3D1DE28C27B233E /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F689A549CFB432AE0684F3EA3BA8D2FF /* Poll.swift */; };
+		8E8C6785FB57B5B7083119C089277211 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
 		9187EEC2982DB82AD8D3A7001AA647D6 /* NMBExceptionCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F4CE0DE16848CBDA8A93366A52BEF7 /* NMBExceptionCapture.m */; };
 		9341B96D63EF6C54A1F906A1BBAEAF46 /* DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DA695A07DF17BA243064E57D889E1CBB /* DSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95D7F256B4CA2ED0B75FE85D64B3B7C6 /* Localizable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A88E372C5E2F252310BC18CB9DB470 /* Localizable-dummy.m */; };
 		9646787942A85613FE77F45794E9B5CD /* BeginWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD57ED9D79412A49A037E8EAA4AF42 /* BeginWith.swift */; };
 		966F73BA7565611C447D5F81B2E60CA6 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = E41A31E4949F1319040B8D2BBBF2B5D6 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AD5B1A27FCA4062989002A4F3A8F041 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569A5BE1E346DF3931927D958AACC65E /* API.swift */; };
 		9E7786C034F0E0A6B5F0A0E6BE7D7E4A /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE24AE8654BDA8234080C23F6335E26 /* BeEmpty.swift */; };
 		A78C95BC91EBCC706F3EC7EEF3E6AE46 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38715BF4570032AE706B97AB11365E48 /* ExampleMetadata.swift */; };
 		A94AE426CC0B8F742D03FA5CDF78E90C /* Pods-Localizable_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F844A76F2A02D2CD77A95396C3A5B29B /* Pods-Localizable_Tests-dummy.m */; };
 		AC9E6DF268C31143D213334E9566342B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7511682ED488897012E4EEC14429BF /* Filter.swift */; };
 		B0A26F58BA3E6222E50AE5AC883B8EAF /* DSL.m in Sources */ = {isa = PBXBuildFile; fileRef = D17DFC0D37F8449B1B2A2D117D1179A2 /* DSL.m */; };
 		B41E8E775408ACE233F29CE93388B270 /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6727AA774C6723AFCA6CFCEF099071C7 /* Contain.swift */; };
-		B48BEF488CFD0577272232B8CCAC118E /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A19E477761D30DA8CB46D0DFE408 /* StorageHelper.swift */; };
 		B5BA4B21814BD3A711B674F7BBA6171C /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD2CC5441C4540A072B29E4A257A9D /* DSL.swift */; };
 		B8AAE565B081B309975CCDDB6DE59181 /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 62241019A9DFE31F82A2CDF8690A163C /* QuickSpec.m */; };
 		B905718B2501DDA22F2AE73CB6E76E6B /* BeCloseTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A378AC6A7BCB5D43F7586353A7610A /* BeCloseTo.swift */; };
 		BB4F35062294C1A461DA3CEF6306A1DB /* HaveCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BC3268759E7DB38A0E192F06A1BD06 /* HaveCount.swift */; };
 		BCB53F24DCADF12601B8BA90AE3190AE /* BeLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69578BBC16AAA12ED9630E2036580E94 /* BeLessThan.swift */; };
-		BEB21C223C5FECCCCD58D55C63A86970 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02523DB07BA89D8DC500E58623BEF62 /* Language.swift */; };
 		C150157922BAEB1F93635508FB59E618 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
+		C22982205508B46B2549E56B9FC50192 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B370E96B126E54A172F8A2E6B7559DA /* AppHelper.swift */; };
+		C3D45B435345FE6E076BF410173447A4 /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA73695985552899BBB9499221357E9 /* StorageHelper.swift */; };
 		C63AB521EA514A811A167E507C0CF9AD /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AD60FAC82B3DEDDBB09BAEE052647 /* Expression.swift */; };
 		C9AC658F3FCB67B50E96313C2687B33D /* MatcherProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D0DF7E7A59098355B7877A39D254B6 /* MatcherProtocols.swift */; };
 		CAAED5FB81DB035A9EC080917C783FA6 /* AdapterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4882E47E7537D32F4C677DF4F0B43 /* AdapterProtocols.swift */; };
@@ -88,7 +88,9 @@
 		D441A4056D82520AF55A22705098177A /* NSString+QCKSelectorName.h in Headers */ = {isa = PBXBuildFile; fileRef = 64F492985EB6550A418DD3DB1BCDE146 /* NSString+QCKSelectorName.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D540F0DAFF07B8BEC730C85A71D413B5 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF695047E0AAFB3CA54EC10F0E97FD3 /* Configuration.swift */; };
 		D60FF015AA1BBDC1EA5E535EEB74ABC6 /* Pods-Localizable_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EF030877EB08AC1341917EE1E2B20270 /* Pods-Localizable_Example-dummy.m */; };
+		D716B78F36A07AF88D662B4DC07EA705 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992999204C83A66C25CFC32EBAE3A30F /* Method.swift */; };
 		D7B45D4600C6166C124C0A926EE65284 /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E302676FFF0A4192E3ECFB4B1FDCF6 /* Functional.swift */; };
+		DDA7A8A428AA63269E56B0DAD54190B0 /* EnumGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472C3F732E4AB7F4B52F392BAF1B9C8 /* EnumGenerator.swift */; };
 		DEE170DD3064F7343884A4016546B762 /* DSL+Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA388FEA33C5B8824432D9681B318F3 /* DSL+Wait.swift */; };
 		E1B1F90FEE42DBE214186DE836E69763 /* Quick-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 616BFD5BF73AEF373E5250D05560A338 /* Quick-dummy.m */; };
 		E2FBD93D72DF01427486D1A6853FC689 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3116FC3DA077740D1C5702FA4C187A2 /* Expectation.swift */; };
@@ -96,7 +98,6 @@
 		E6E7B15FAD6C56681511813DB2666478 /* AssertionRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84D274316F8C6F9695294FB40D7596F /* AssertionRecorder.swift */; };
 		EE90AE716157B8C2571E81B71939B049 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
 		F10FD3129985704FA1610F84FB98EDF5 /* Stringers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CE50F8B4B99D3C229D2438892ED5B /* Stringers.swift */; };
-		F174A1F97242D742CC17F305F91FD72E /* Localizable.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C7A1A31AE940DABC86419B36239749A4 /* Localizable.bundle */; };
 		F1D4A8A1FC68EFA7F45945908D70A352 /* BeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02297D692E5CA1B1C21CCCDA1853BA44 /* BeNil.swift */; };
 		FB1347627E64CA7E98C19DC985E13D95 /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75276E4A134A22E123F4C40E529080C /* Equal.swift */; };
 		FC008811674C9463D70B63F78527D2DC /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487245080A1AB0FFD48288B814AEA82 /* World.swift */; };
@@ -108,7 +109,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7BB9BEA1D7D7591A393994B1AA36334A;
+			remoteGlobalIDString = ABF4C6221C96F8B21C3173706E79E089;
 			remoteInfo = Localizable;
 		};
 		8A296896C10ED0019B6226AA42B0598F /* PBXContainerItemProxy */ = {
@@ -122,7 +123,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7BB9BEA1D7D7591A393994B1AA36334A;
+			remoteGlobalIDString = ABF4C6221C96F8B21C3173706E79E089;
 			remoteInfo = Localizable;
 		};
 		BBB7040051964D00182463932D997C4E /* PBXContainerItemProxy */ = {
@@ -132,30 +133,21 @@
 			remoteGlobalIDString = C5DB5104FED3C10F78978AFC810982B9;
 			remoteInfo = Nimble;
 		};
-		E903D2E5CAFD5C272B018C75EB0C2645 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 077A29C7B5D7E591024ABE3A783D2207;
-			remoteInfo = "Localizable-Localizable";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		01F8C281E400A6FABAD082CEA7263B2A /* ExampleHooks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleHooks.swift; path = Quick/Hooks/ExampleHooks.swift; sourceTree = "<group>"; };
 		021C4E135FFC34B4A74FD0560A640549 /* Quick.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Quick.modulemap; sourceTree = "<group>"; };
 		02297D692E5CA1B1C21CCCDA1853BA44 /* BeNil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeNil.swift; path = Nimble/Matchers/BeNil.swift; sourceTree = "<group>"; };
-		03F730201CE59A1CF27B78D200710E24 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05994338D2881A6FF57D833ECC78F263 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		0472C3F732E4AB7F4B52F392BAF1B9C8 /* EnumGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EnumGenerator.swift; sourceTree = "<group>"; };
 		0B0C995C72A44C02A9369FA2BDB1F4FF /* AssertionDispatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssertionDispatcher.swift; path = Nimble/Adapters/AssertionDispatcher.swift; sourceTree = "<group>"; };
 		0B53DF3C5B85F993313E9FA09386C167 /* BeAKindOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeAKindOf.swift; path = Nimble/Matchers/BeAKindOf.swift; sourceTree = "<group>"; };
-		0F616C7BE151E60ADE104CE0912A1596 /* Localizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		0CD344DBF31D1D2812FEF245E5AAD1FC /* Localizable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Localizable-dummy.m"; sourceTree = "<group>"; };
+		103A115EAB336A3E569F32B333770918 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		13064CC241598F189B1341470994F9D9 /* BeAnInstanceOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeAnInstanceOf.swift; path = Nimble/Matchers/BeAnInstanceOf.swift; sourceTree = "<group>"; };
-		14D2C2CAB1E0495806A5CC1EF8EADBFA /* Pods_Localizable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Localizable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		165F2743158C0983A674CE54D8701D38 /* Localizable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Localizable.modulemap; sourceTree = "<group>"; };
-		17A88E372C5E2F252310BC18CB9DB470 /* Localizable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Localizable-dummy.m"; sourceTree = "<group>"; };
+		1AB6DF18CD81C4114BA816704EF8D355 /* Localizable.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Localizable.xcconfig; sourceTree = "<group>"; };
+		1B370E96B126E54A172F8A2E6B7559DA /* AppHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		1D42013D479CDC11E7882C7C0045B66B /* AsyncMatcherWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncMatcherWrapper.swift; path = Nimble/Wrappers/AsyncMatcherWrapper.swift; sourceTree = "<group>"; };
-		1D9C5817CCCB46AE41EC52AAF4A1F92F /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEAC9B94EF686CA05C9A07B1B3D1878 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E8B6303CCFDEBF93094E92D50CAFF38 /* EndWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EndWith.swift; path = Nimble/Matchers/EndWith.swift; sourceTree = "<group>"; };
 		20ABC5A3D02301EC1EC014B6ABEFA42A /* NSString+QCKSelectorName.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+QCKSelectorName.m"; path = "Quick/NSString+QCKSelectorName.m"; sourceTree = "<group>"; };
@@ -168,18 +160,14 @@
 		28E302676FFF0A4192E3ECFB4B1FDCF6 /* Functional.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Functional.swift; path = Nimble/Utils/Functional.swift; sourceTree = "<group>"; };
 		29A378AC6A7BCB5D43F7586353A7610A /* BeCloseTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeCloseTo.swift; path = Nimble/Matchers/BeCloseTo.swift; sourceTree = "<group>"; };
 		2B9040AB08CA7AEB727960E284F746A4 /* DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Nimble/DSL.swift; sourceTree = "<group>"; };
+		2BC711890B9DE751D1CFE45E17F86D6D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FE24AE8654BDA8234080C23F6335E26 /* BeEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeEmpty.swift; path = Nimble/Matchers/BeEmpty.swift; sourceTree = "<group>"; };
-		2FEF0C2EE05910BE3E5B999399193002 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
-		30653F0C1C82266400AABDE5 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 		31E6050F98D5FA6434253B1200D00030 /* Pods-Localizable_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Localizable_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		33DD2CC5441C4540A072B29E4A257A9D /* DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Quick/DSL/DSL.swift; sourceTree = "<group>"; };
 		38715BF4570032AE706B97AB11365E48 /* ExampleMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleMetadata.swift; path = Quick/ExampleMetadata.swift; sourceTree = "<group>"; };
-		3BF81E4C80F756D0B14D9A0ECD0EDD9C /* AppHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		3F1975D001BFB447009180BAF8C14ADB /* Quick-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Quick-prefix.pch"; sourceTree = "<group>"; };
 		4086412D5DD969AC5FDBFD2359476FB4 /* Pods-Localizable_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Localizable_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		40FBD52025077E5788ADCE71EF040393 /* NMBExceptionCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMBExceptionCapture.h; path = Nimble/objc/NMBExceptionCapture.h; sourceTree = "<group>"; };
-		4636B6CC6660B99C5C882901B17B0816 /* Network.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		48A926621356047764942A6171AEDE06 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4930275AC98E3FD0F3BC81A7D08B8591 /* SourceLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceLocation.swift; path = Nimble/Utils/SourceLocation.swift; sourceTree = "<group>"; };
 		4C0EAA5BA062125C64E6A819695F87C6 /* World.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = World.h; path = Quick/World.h; sourceTree = "<group>"; };
 		4C6D6E41BA9F922E7BBD3A24B7E5D00A /* Callsite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Callsite.swift; path = Quick/Callsite.swift; sourceTree = "<group>"; };
@@ -188,11 +176,13 @@
 		51401D6293EDDD7DE6819B08C355F0D8 /* Pods-Localizable_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Localizable_Example.modulemap"; sourceTree = "<group>"; };
 		54BC3268759E7DB38A0E192F06A1BD06 /* HaveCount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HaveCount.swift; path = Nimble/Matchers/HaveCount.swift; sourceTree = "<group>"; };
 		5596CB4CEA7B7B71461C9ECE75263656 /* NimbleXCTestHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NimbleXCTestHandler.swift; path = Nimble/Adapters/NimbleXCTestHandler.swift; sourceTree = "<group>"; };
+		569A5BE1E346DF3931927D958AACC65E /* API.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		58CD57ED9D79412A49A037E8EAA4AF42 /* BeginWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeginWith.swift; path = Nimble/Matchers/BeginWith.swift; sourceTree = "<group>"; };
 		5BF695047E0AAFB3CA54EC10F0E97FD3 /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Quick/Configuration/Configuration.swift; sourceTree = "<group>"; };
 		5D6A2E71DBC9D0DE17402BCFCFEEBDB2 /* Nimble-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-prefix.pch"; sourceTree = "<group>"; };
 		5F33805A18F4D4A395C873D7ACF48A5C /* Pods-Localizable_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Localizable_Tests.modulemap"; sourceTree = "<group>"; };
 		616BFD5BF73AEF373E5250D05560A338 /* Quick-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Quick-dummy.m"; sourceTree = "<group>"; };
+		619D9EB75435F77E4554E96C41869171 /* Localizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		62241019A9DFE31F82A2CDF8690A163C /* QuickSpec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickSpec.m; path = Quick/QuickSpec.m; sourceTree = "<group>"; };
 		64F0BEE5B67844F0E333920C2CB3416C /* SuiteHooks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SuiteHooks.swift; path = Quick/Hooks/SuiteHooks.swift; sourceTree = "<group>"; };
 		64F492985EB6550A418DD3DB1BCDE146 /* NSString+QCKSelectorName.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+QCKSelectorName.h"; path = "Quick/NSString+QCKSelectorName.h"; sourceTree = "<group>"; };
@@ -200,50 +190,55 @@
 		69578BBC16AAA12ED9630E2036580E94 /* BeLessThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLessThan.swift; path = Nimble/Matchers/BeLessThan.swift; sourceTree = "<group>"; };
 		69A1AA2E4CDFA7B6FD9B4F253CAF481F /* BeIdenticalTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeIdenticalTo.swift; path = Nimble/Matchers/BeIdenticalTo.swift; sourceTree = "<group>"; };
 		6DDA3CDE7515A11BE56C6C2FE5FB65D8 /* World+DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "World+DSL.swift"; path = "Quick/DSL/World+DSL.swift"; sourceTree = "<group>"; };
+		6E4263C390A3E9C778C1F1E84D6777FB /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E8AE2CC070A030200F208B8941F0F5B /* Pods_Localizable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Localizable_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72F73B41A192F67C54035E3E34412C01 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B922FF75D982F502B345AE30399F97 /* ObjCMatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObjCMatcher.swift; path = Nimble/Wrappers/ObjCMatcher.swift; sourceTree = "<group>"; };
 		73E5FE06F46193D1FAD369FF81AC5B36 /* Pods-Localizable_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Localizable_Example-umbrella.h"; sourceTree = "<group>"; };
 		750E6ECEF8281E89CA8C385CCBA40EDA /* Pods-Localizable_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Localizable_Example-resources.sh"; sourceTree = "<group>"; };
 		784135A9193F0FE38182AF2C577B3A52 /* Nimble.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Nimble.h; path = Nimble/Nimble.h; sourceTree = "<group>"; };
-		7A046A6052BC7B69331E2CCEBB59B562 /* Pods_Localizable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Localizable_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A43BD1AE7077023ECA3535B8D305D4B /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		7C07CB259CB51CAA2B1B59537C0A7C2C /* Quick.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Quick.xcconfig; sourceTree = "<group>"; };
-		8118D8D45B9F26645995EE711E5B1389 /* Localizable.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Localizable.xcconfig; sourceTree = "<group>"; };
 		8487245080A1AB0FFD48288B814AEA82 /* World.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = World.swift; path = Quick/World.swift; sourceTree = "<group>"; };
-		84A4A19E477761D30DA8CB46D0DFE408 /* StorageHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		84F428D7514B8DD65DC8AB2094C0A4EE /* Pods-Localizable_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Localizable_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		88457B3A5C81E0F34AC48AC05B8040D6 /* RaisesException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RaisesException.swift; path = Nimble/Matchers/RaisesException.swift; sourceTree = "<group>"; };
 		8880B82EFD81A0D6EE2BBD27A39D61BA /* QuickSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuickSpec.h; path = Quick/QuickSpec.h; sourceTree = "<group>"; };
+		893FB577D402261E8D63EB066B3170BF /* Diff.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 		8D71E1494A9F2AF156DD57CE4B652038 /* Pods-Localizable_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Localizable_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8E12C6F645E5DC0EDB23023A394F1CB1 /* BeLessThanOrEqual.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLessThanOrEqual.swift; path = Nimble/Matchers/BeLessThanOrEqual.swift; sourceTree = "<group>"; };
 		904A219D19B3FCD7C386E3A3DEAB0E51 /* Pods-Localizable_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Localizable_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		94A039912FDC46FCB2AF6DCEEB91ADB4 /* World+DSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "World+DSL.h"; path = "Quick/DSL/World+DSL.h"; sourceTree = "<group>"; };
+		97D11C75F5BDC20E11B34DB586729E9C /* Localizable-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localizable-prefix.pch"; sourceTree = "<group>"; };
+		992999204C83A66C25CFC32EBAE3A30F /* Method.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		A092F274C24580C813D78DC858321879 /* Pods-Localizable_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Localizable_Example-frameworks.sh"; sourceTree = "<group>"; };
-		AA19C9081E819BE17BCE23BBB6FAE14B /* API.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		AB434167824D00D484923464C8B5F3F4 /* Localizable-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localizable-prefix.pch"; sourceTree = "<group>"; };
+		A598630A4E661839E39F8C673284D133 /* Localizable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Localizable.modulemap; sourceTree = "<group>"; };
+		A94DF47C50AE611BCB9A3D134132B15A /* Network.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		AB9A06BB5582FAB5222DDE444F7962D2 /* Pods-Localizable_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Localizable_Tests-umbrella.h"; sourceTree = "<group>"; };
 		AE29D73BEB1C6322D41CF31F6BD3C0C2 /* Pods-Localizable_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Localizable_Tests-resources.sh"; sourceTree = "<group>"; };
 		AE670FBBCC7FBB0E81F05DA0C8EAAEE5 /* QuickConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickConfiguration.m; path = Quick/Configuration/QuickConfiguration.m; sourceTree = "<group>"; };
 		AE6E3634125A20B9BA58962919B08DDC /* Closures.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Closures.swift; path = Quick/Hooks/Closures.swift; sourceTree = "<group>"; };
+		AF83A449E970CB700083DFEE20470E3B /* Localizable-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localizable-umbrella.h"; sourceTree = "<group>"; };
 		B011BCE1507648ECA7586CF7DABF6F4C /* BeLogical.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLogical.swift; path = Nimble/Matchers/BeLogical.swift; sourceTree = "<group>"; };
-		B02523DB07BA89D8DC500E58623BEF62 /* Language.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		B2005F86F2C2D05CDE00BB78EF02D6D4 /* ExampleGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleGroup.swift; path = Quick/ExampleGroup.swift; sourceTree = "<group>"; };
 		B3116FC3DA077740D1C5702FA4C187A2 /* Expectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expectation.swift; path = Nimble/Expectation.swift; sourceTree = "<group>"; };
 		B68A276C05A93CFCC331A055BCA33167 /* Nimble.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Nimble.xcconfig; sourceTree = "<group>"; };
 		B84D274316F8C6F9695294FB40D7596F /* AssertionRecorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssertionRecorder.swift; path = Nimble/Adapters/AssertionRecorder.swift; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BB3AC1B1E8E1BB58C97CC2B1DF36D55E /* Localizable-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localizable-umbrella.h"; sourceTree = "<group>"; };
 		BEA1EFFE836005E11B9D420692E9E50C /* Example.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Example.swift; path = Quick/Example.swift; sourceTree = "<group>"; };
 		BF4AE1E80CC4EA4F2E1FF17CA10A3D26 /* Nimble-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-umbrella.h"; sourceTree = "<group>"; };
 		C03BB6589A73F51F073DF050F55D7F41 /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeGreaterThanOrEqualTo.swift; path = Nimble/Matchers/BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
-		C7A1A31AE940DABC86419B36239749A4 /* Localizable.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Localizable.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E9634CF58B22F95DF5AA222CDAF9B8 /* Nimble-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Nimble-dummy.m"; sourceTree = "<group>"; };
-		CAAFA166EB4D72C9B7A5C7F8CB5B4148 /* Method.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		CD6892139A4E44DF95C89A6BE52900CE /* Nimble.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Nimble.modulemap; sourceTree = "<group>"; };
+		CEADC7F51E69F7EEDB452DF60B7B2F50 /* Language.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		D0843BD7412E439120C081E8D9FE0F80 /* Match.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Match.swift; path = Nimble/Matchers/Match.swift; sourceTree = "<group>"; };
 		D097F03CC6EA85EB3A61CD3E054A1ADB /* Pods-Localizable_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Localizable_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D17DFC0D37F8449B1B2A2D117D1179A2 /* DSL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DSL.m; path = Nimble/objc/DSL.m; sourceTree = "<group>"; };
 		D4E0D7E2D11371A45CB3D1221E7B4EC2 /* Quick.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Quick.h; path = Quick/Quick.h; sourceTree = "<group>"; };
 		D75276E4A134A22E123F4C40E529080C /* Equal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Equal.swift; path = Nimble/Matchers/Equal.swift; sourceTree = "<group>"; };
+		D776EC5A4E283EF4D8839D56217DC5B1 /* Pods_Localizable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Localizable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA0111B0CEDC6129E682A51920DDA3D9 /* LogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		DA695A07DF17BA243064E57D889E1CBB /* DSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DSL.h; path = Nimble/objc/DSL.h; sourceTree = "<group>"; };
+		E0C638D125C00A97A201599EC529A4C6 /* run */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = run; sourceTree = "<group>"; };
 		E2BC0728045ED4D4A2C12B52A561EEF7 /* ThrowError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThrowError.swift; path = Nimble/Matchers/ThrowError.swift; sourceTree = "<group>"; };
 		E2CA10F80B180940D3FD95B58168494E /* Pods-Localizable_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Localizable_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		E31CE50F8B4B99D3C229D2438892ED5B /* Stringers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stringers.swift; path = Nimble/Utils/Stringers.swift; sourceTree = "<group>"; };
@@ -251,8 +246,8 @@
 		E3CD67A0263B5D926517C112081F48B2 /* BeGreaterThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeGreaterThan.swift; path = Nimble/Matchers/BeGreaterThan.swift; sourceTree = "<group>"; };
 		E41A31E4949F1319040B8D2BBBF2B5D6 /* QCKDSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QCKDSL.h; path = Quick/DSL/QCKDSL.h; sourceTree = "<group>"; };
 		E43EEEBE209F0CF242FBC231937E6922 /* MatcherFunc.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatcherFunc.swift; path = Nimble/Wrappers/MatcherFunc.swift; sourceTree = "<group>"; };
-		E56E06E2060C4FCC9EF51135F1BFC736 /* LogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
-		EBEB7EE96A8E406FD3C9BE2D929F7BEF /* Localizable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Localizable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6271E69F70A7E0001F27F8384A16A7D /* Localizable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Localizable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAA73695985552899BBB9499221357E9 /* StorageHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		ECB4882E47E7537D32F4C677DF4F0B43 /* AdapterProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdapterProtocols.swift; path = Nimble/Adapters/AdapterProtocols.swift; sourceTree = "<group>"; };
 		EF030877EB08AC1341917EE1E2B20270 /* Pods-Localizable_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Localizable_Example-dummy.m"; sourceTree = "<group>"; };
 		F1D4A64A54F414359EC782444B27597B /* QuickConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuickConfiguration.h; path = Quick/Configuration/QuickConfiguration.h; sourceTree = "<group>"; };
@@ -302,18 +297,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE21477AD68C3FDBCE70E40705F34B83 /* Frameworks */ = {
+		E0F2218B851D9205D3DA66CE50730D66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				027F095B832252A03C1B1CAD0240AD38 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D295F280ECAA231A5920D4F9B21757BE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				8E8C6785FB57B5B7083119C089277211 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,34 +315,6 @@
 				279AA6492631DEFA8C439A9C088EEB8A /* XCTest.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		108D7861ED07A362C25536750120EFAE /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				AA19C9081E819BE17BCE23BBB6FAE14B /* API.swift */,
-				3BF81E4C80F756D0B14D9A0ECD0EDD9C /* AppHelper.swift */,
-				B02523DB07BA89D8DC500E58623BEF62 /* Language.swift */,
-				0F616C7BE151E60ADE104CE0912A1596 /* Localizable.swift */,
-				05994338D2881A6FF57D833ECC78F263 /* Logger.swift */,
-				E56E06E2060C4FCC9EF51135F1BFC736 /* LogLevel.swift */,
-				CAAFA166EB4D72C9B7A5C7F8CB5B4148 /* Method.swift */,
-				4636B6CC6660B99C5C882901B17B0816 /* Network.swift */,
-				84A4A19E477761D30DA8CB46D0DFE408 /* StorageHelper.swift */,
-				2FEF0C2EE05910BE3E5B999399193002 /* UserDefaultsHelper.swift */,
-				30653F0C1C82266400AABDE5 /* Diff.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		11F1B863C8269907F2A867317B69C28B /* Localizable */ = {
-			isa = PBXGroup;
-			children = (
-				21642814357DBAFED4B1E44BA9854710 /* Pod */,
-				514F3599DAAB03117929E082F2B018A9 /* Support Files */,
-			);
-			name = Localizable;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		165CBD5EF5E51DEF53C9D140745FCD9F /* Pods-Localizable_Tests */ = {
@@ -389,12 +349,18 @@
 			path = "../Target Support Files/Quick";
 			sourceTree = "<group>";
 		};
-		21642814357DBAFED4B1E44BA9854710 /* Pod */ = {
+		249CCDEA13AFE3122B810AB6BB32728D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				108D7861ED07A362C25536750120EFAE /* Classes */,
+				2BC711890B9DE751D1CFE45E17F86D6D /* Info.plist */,
+				A598630A4E661839E39F8C673284D133 /* Localizable.modulemap */,
+				1AB6DF18CD81C4114BA816704EF8D355 /* Localizable.xcconfig */,
+				0CD344DBF31D1D2812FEF245E5AAD1FC /* Localizable-dummy.m */,
+				97D11C75F5BDC20E11B34DB586729E9C /* Localizable-prefix.pch */,
+				AF83A449E970CB700083DFEE20470E3B /* Localizable-umbrella.h */,
 			);
-			path = Pod;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Localizable";
 			sourceTree = "<group>";
 		};
 		29393A2843B2435867F1BE40A21F4864 /* Targets Support Files */ = {
@@ -431,23 +397,21 @@
 		48269499F881E8E30BBB2BAA814AD359 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				11F1B863C8269907F2A867317B69C28B /* Localizable */,
+				9C3DBA5A6389A439147F0C2D50A4EBBA /* Localizable */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		514F3599DAAB03117929E082F2B018A9 /* Support Files */ = {
+		4F23165F221D5DA03DB93A3F9BC53D5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				03F730201CE59A1CF27B78D200710E24 /* Info.plist */,
-				165F2743158C0983A674CE54D8701D38 /* Localizable.modulemap */,
-				8118D8D45B9F26645995EE711E5B1389 /* Localizable.xcconfig */,
-				17A88E372C5E2F252310BC18CB9DB470 /* Localizable-dummy.m */,
-				AB434167824D00D484923464C8B5F3F4 /* Localizable-prefix.pch */,
-				BB3AC1B1E8E1BB58C97CC2B1DF36D55E /* Localizable-umbrella.h */,
+				E6271E69F70A7E0001F27F8384A16A7D /* Localizable.framework */,
+				6E4263C390A3E9C778C1F1E84D6777FB /* Nimble.framework */,
+				D776EC5A4E283EF4D8839D56217DC5B1 /* Pods_Localizable_Example.framework */,
+				6E8AE2CC070A030200F208B8941F0F5B /* Pods_Localizable_Tests.framework */,
+				72F73B41A192F67C54035E3E34412C01 /* Quick.framework */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Localizable";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		64E98FF7B6454214F8290BB0AC208D8F /* Quick */ = {
@@ -506,9 +470,29 @@
 				48269499F881E8E30BBB2BAA814AD359 /* Development Pods */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				8F29E9621F2E4347FEA6F6D7F0748038 /* Pods */,
-				C45648D1260A99A1F9FC43EFCD34321D /* Products */,
+				4F23165F221D5DA03DB93A3F9BC53D5B /* Products */,
 				29393A2843B2435867F1BE40A21F4864 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		82F9E9D4C49803573129A35D87C2C0F4 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				569A5BE1E346DF3931927D958AACC65E /* API.swift */,
+				1B370E96B126E54A172F8A2E6B7559DA /* AppHelper.swift */,
+				893FB577D402261E8D63EB066B3170BF /* Diff.swift */,
+				0472C3F732E4AB7F4B52F392BAF1B9C8 /* EnumGenerator.swift */,
+				CEADC7F51E69F7EEDB452DF60B7B2F50 /* Language.swift */,
+				619D9EB75435F77E4554E96C41869171 /* Localizable.swift */,
+				103A115EAB336A3E569F32B333770918 /* Logger.swift */,
+				DA0111B0CEDC6129E682A51920DDA3D9 /* LogLevel.swift */,
+				992999204C83A66C25CFC32EBAE3A30F /* Method.swift */,
+				A94DF47C50AE611BCB9A3D134132B15A /* Network.swift */,
+				E0C638D125C00A97A201599EC529A4C6 /* run */,
+				EAA73695985552899BBB9499221357E9 /* StorageHelper.swift */,
+				7A43BD1AE7077023ECA3535B8D305D4B /* UserDefaultsHelper.swift */,
+			);
+			path = Pod;
 			sourceTree = "<group>";
 		};
 		8F29E9621F2E4347FEA6F6D7F0748038 /* Pods */ = {
@@ -520,17 +504,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C45648D1260A99A1F9FC43EFCD34321D /* Products */ = {
+		9C3DBA5A6389A439147F0C2D50A4EBBA /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
-				C7A1A31AE940DABC86419B36239749A4 /* Localizable.bundle */,
-				EBEB7EE96A8E406FD3C9BE2D929F7BEF /* Localizable.framework */,
-				48A926621356047764942A6171AEDE06 /* Nimble.framework */,
-				14D2C2CAB1E0495806A5CC1EF8EADBFA /* Pods_Localizable_Example.framework */,
-				7A046A6052BC7B69331E2CCEBB59B562 /* Pods_Localizable_Tests.framework */,
-				1D9C5817CCCB46AE41EC52AAF4A1F92F /* Quick.framework */,
+				82F9E9D4C49803573129A35D87C2C0F4 /* Pod */,
+				249CCDEA13AFE3122B810AB6BB32728D /* Support Files */,
 			);
-			name = Products;
+			name = Localizable;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		D877BEEDC4F6494B4B10BC732B32A32B /* Nimble */ = {
@@ -618,11 +599,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA6D083CB709B4858F5EF5532E9330CD /* Headers */ = {
+		89C4A218B499E843BDD88C5E70D82833 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58441B9F8E32B386EC77B37AC23E00EB /* Localizable-umbrella.h in Headers */,
+				29C02A03C18966A2F74C6092857C0A07 /* Localizable-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,23 +621,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		077A29C7B5D7E591024ABE3A783D2207 /* Localizable-Localizable */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 068390D2819964E9955FECA96957AAED /* Build configuration list for PBXNativeTarget "Localizable-Localizable" */;
-			buildPhases = (
-				66AF48874F5B74E360620B5BCA201CA1 /* Sources */,
-				D295F280ECAA231A5920D4F9B21757BE /* Frameworks */,
-				5CD3909D0411E4CDD77436DE707FF957 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Localizable-Localizable";
-			productName = "Localizable-Localizable";
-			productReference = C7A1A31AE940DABC86419B36239749A4 /* Localizable.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 		0A6052C7EEE3B0FC5BCF942D8E1C0C10 /* Pods-Localizable_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9C5A5A220978FA346E942FCF217469F /* Build configuration list for PBXNativeTarget "Pods-Localizable_Example" */;
@@ -672,7 +636,7 @@
 			);
 			name = "Pods-Localizable_Example";
 			productName = "Pods-Localizable_Example";
-			productReference = 14D2C2CAB1E0495806A5CC1EF8EADBFA /* Pods_Localizable_Example.framework */;
+			productReference = D776EC5A4E283EF4D8839D56217DC5B1 /* Pods_Localizable_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3F621DA21C20C51BE94C22348971DFE5 /* Quick */ = {
@@ -689,26 +653,24 @@
 			);
 			name = Quick;
 			productName = Quick;
-			productReference = 1D9C5817CCCB46AE41EC52AAF4A1F92F /* Quick.framework */;
+			productReference = 72F73B41A192F67C54035E3E34412C01 /* Quick.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7BB9BEA1D7D7591A393994B1AA36334A /* Localizable */ = {
+		ABF4C6221C96F8B21C3173706E79E089 /* Localizable */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0F555DFFBD078BD3C9DD5230C41F055E /* Build configuration list for PBXNativeTarget "Localizable" */;
+			buildConfigurationList = 3584EBD0CCFDEBA92B31E8F89C67416F /* Build configuration list for PBXNativeTarget "Localizable" */;
 			buildPhases = (
-				D3F666087EE5B45F6CF97C416C2A6101 /* Sources */,
-				CE21477AD68C3FDBCE70E40705F34B83 /* Frameworks */,
-				824307215CE1F5ECD08D3AE6C62CD062 /* Resources */,
-				AA6D083CB709B4858F5EF5532E9330CD /* Headers */,
+				C25D323534DCAFDC670123F4429FE159 /* Sources */,
+				E0F2218B851D9205D3DA66CE50730D66 /* Frameworks */,
+				89C4A218B499E843BDD88C5E70D82833 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ED44E95798E02B60251146E53D83F99A /* PBXTargetDependency */,
 			);
 			name = Localizable;
 			productName = Localizable;
-			productReference = EBEB7EE96A8E406FD3C9BE2D929F7BEF /* Localizable.framework */;
+			productReference = E6271E69F70A7E0001F27F8384A16A7D /* Localizable.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C2CEE4A0448AD72774301552356D9DE5 /* Pods-Localizable_Tests */ = {
@@ -728,7 +690,7 @@
 			);
 			name = "Pods-Localizable_Tests";
 			productName = "Pods-Localizable_Tests";
-			productReference = 7A046A6052BC7B69331E2CCEBB59B562 /* Pods_Localizable_Tests.framework */;
+			productReference = 6E8AE2CC070A030200F208B8941F0F5B /* Pods_Localizable_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C5DB5104FED3C10F78978AFC810982B9 /* Nimble */ = {
@@ -745,7 +707,7 @@
 			);
 			name = Nimble;
 			productName = Nimble;
-			productReference = 48A926621356047764942A6171AEDE06 /* Nimble.framework */;
+			productReference = 6E4263C390A3E9C778C1F1E84D6777FB /* Nimble.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -765,12 +727,11 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = C45648D1260A99A1F9FC43EFCD34321D /* Products */;
+			productRefGroup = 4F23165F221D5DA03DB93A3F9BC53D5B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7BB9BEA1D7D7591A393994B1AA36334A /* Localizable */,
-				077A29C7B5D7E591024ABE3A783D2207 /* Localizable-Localizable */,
+				ABF4C6221C96F8B21C3173706E79E089 /* Localizable */,
 				C5DB5104FED3C10F78978AFC810982B9 /* Nimble */,
 				0A6052C7EEE3B0FC5BCF942D8E1C0C10 /* Pods-Localizable_Example */,
 				C2CEE4A0448AD72774301552356D9DE5 /* Pods-Localizable_Tests */,
@@ -778,24 +739,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		5CD3909D0411E4CDD77436DE707FF957 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		824307215CE1F5ECD08D3AE6C62CD062 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F174A1F97242D742CC17F305F91FD72E /* Localizable.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		05103777515E5917B4A0678DA7E254B1 /* Sources */ = {
@@ -806,10 +749,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		66AF48874F5B74E360620B5BCA201CA1 /* Sources */ = {
+		C25D323534DCAFDC670123F4429FE159 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD5B1A27FCA4062989002A4F3A8F041 /* API.swift in Sources */,
+				C22982205508B46B2549E56B9FC50192 /* AppHelper.swift in Sources */,
+				66A1DA74B22589CB01BFADE768223393 /* Diff.swift in Sources */,
+				DDA7A8A428AA63269E56B0DAD54190B0 /* EnumGenerator.swift in Sources */,
+				128295FC59DEC4FDD911492F7930BCCB /* Language.swift in Sources */,
+				1BDFD0C195F182A9D09C4A6B9B83222E /* Localizable-dummy.m in Sources */,
+				44B07334A491AA70E0C28B4623A1D563 /* Localizable.swift in Sources */,
+				49B3F809644FB2C9FD47ADA9F69DF94E /* Logger.swift in Sources */,
+				57B3A5BE848627039FB3F80E4EC30D74 /* LogLevel.swift in Sources */,
+				D716B78F36A07AF88D662B4DC07EA705 /* Method.swift in Sources */,
+				233F30181151C984CF41C15C44D3DB9B /* Network.swift in Sources */,
+				5876C6EF1495E3A815B8B498267C9424 /* run in Sources */,
+				C3D45B435345FE6E076BF410173447A4 /* StorageHelper.swift in Sources */,
+				6CBC0DDD5D336EB6854A4B949D8C18C3 /* UserDefaultsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,25 +826,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D3F666087EE5B45F6CF97C416C2A6101 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				76F6620B2D061BE0085F7E9DB8DE8418 /* API.swift in Sources */,
-				19F9C598037EB7BB61406E4E45D72118 /* AppHelper.swift in Sources */,
-				BEB21C223C5FECCCCD58D55C63A86970 /* Language.swift in Sources */,
-				95D7F256B4CA2ED0B75FE85D64B3B7C6 /* Localizable-dummy.m in Sources */,
-				83415ED92AF468B775D821099B89365C /* Localizable.swift in Sources */,
-				1A54B10B9B8DB30393D89832786F6D10 /* Logger.swift in Sources */,
-				30653F0D1C82266400AABDE5 /* Diff.swift in Sources */,
-				3FF537415ADD22B422366A6B93A4D9DE /* LogLevel.swift in Sources */,
-				53C407227DE8BAC95B9E6A50626531AE /* Method.swift in Sources */,
-				7C21F7B9BBE59067ECDBE58A02A27808 /* Network.swift in Sources */,
-				B48BEF488CFD0577272232B8CCAC118E /* StorageHelper.swift in Sources */,
-				23B21E405552FE7E893BE0356404E3C9 /* UserDefaultsHelper.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ED68133C6D78E7DF255CA441BDED8D77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -918,13 +856,13 @@
 		0FD3DEAA98A7D98F78BB7829BCDD8FFE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Localizable;
-			target = 7BB9BEA1D7D7591A393994B1AA36334A /* Localizable */;
+			target = ABF4C6221C96F8B21C3173706E79E089 /* Localizable */;
 			targetProxy = A55E371D0EF312D04D45232C11B51120 /* PBXContainerItemProxy */;
 		};
 		80EE3F81F4236869D80497E1D7CC7D9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Localizable;
-			target = 7BB9BEA1D7D7591A393994B1AA36334A /* Localizable */;
+			target = ABF4C6221C96F8B21C3173706E79E089 /* Localizable */;
 			targetProxy = 88E8EE7C92CF7FEE6CDF61B7CC25FBF9 /* PBXContainerItemProxy */;
 		};
 		821015F9FEF47CBB40E5542E85506A88 /* PBXTargetDependency */ = {
@@ -938,12 +876,6 @@
 			name = Quick;
 			target = 3F621DA21C20C51BE94C22348971DFE5 /* Quick */;
 			targetProxy = 8A296896C10ED0019B6226AA42B0598F /* PBXContainerItemProxy */;
-		};
-		ED44E95798E02B60251146E53D83F99A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Localizable-Localizable";
-			target = 077A29C7B5D7E591024ABE3A783D2207 /* Localizable-Localizable */;
-			targetProxy = E903D2E5CAFD5C272B018C75EB0C2645 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -975,18 +907,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		061A74677561244AEA22C01F2B4A4746 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8118D8D45B9F26645995EE711E5B1389 /* Localizable.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = Localizable;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
 		};
 		0F74D5B2DBCC25AB059880A55BF9265F /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1204,9 +1124,9 @@
 			};
 			name = Debug;
 		};
-		94F116CF7B7DB7BB1868918F6A58C0B1 /* Release */ = {
+		8E2A9B1E8F799971C896187DDB859D63 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8118D8D45B9F26645995EE711E5B1389 /* Localizable.xcconfig */;
+			baseConfigurationReference = 1AB6DF18CD81C4114BA816704EF8D355 /* Localizable.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1261,18 +1181,6 @@
 			};
 			name = Release;
 		};
-		E16E6DA67B1489A4B8C8BC83D0D1F005 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8118D8D45B9F26645995EE711E5B1389 /* Localizable.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = Localizable;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		E4D7DA7E4148F9E717497FE1E6701110 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 904A219D19B3FCD7C386E3A3DEAB0E51 /* Pods-Localizable_Tests.debug.xcconfig */;
@@ -1304,9 +1212,9 @@
 			};
 			name = Debug;
 		};
-		ED822A7AFF737664439103CEED970E97 /* Debug */ = {
+		F5C347FFBE7EE689BF3CC88D1A35C78A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8118D8D45B9F26645995EE711E5B1389 /* Localizable.xcconfig */;
+			baseConfigurationReference = 1AB6DF18CD81C4114BA816704EF8D355 /* Localizable.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1335,15 +1243,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		068390D2819964E9955FECA96957AAED /* Build configuration list for PBXNativeTarget "Localizable-Localizable" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E16E6DA67B1489A4B8C8BC83D0D1F005 /* Debug */,
-				061A74677561244AEA22C01F2B4A4746 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		088AECB159E4A5AE14AE5BD0F540CF27 /* Build configuration list for PBXNativeTarget "Pods-Localizable_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1353,20 +1252,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0F555DFFBD078BD3C9DD5230C41F055E /* Build configuration list for PBXNativeTarget "Localizable" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ED822A7AFF737664439103CEED970E97 /* Debug */,
-				94F116CF7B7DB7BB1868918F6A58C0B1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				552D02D5BA751AC2E8790D2811D496CA /* Debug */,
 				10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3584EBD0CCFDEBA92B31E8F89C67416F /* Build configuration list for PBXNativeTarget "Localizable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5C347FFBE7EE689BF3CC88D1A35C78A /* Debug */,
+				8E2A9B1E8F799971C896187DDB859D63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

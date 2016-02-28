@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Build/Build.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Localizable.xcodeproj">
    </FileRef>
    <FileRef

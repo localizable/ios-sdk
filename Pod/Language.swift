@@ -193,8 +193,8 @@ extension Language {
     guard let diffs = localizableVersionDiffs() else {
       return
     }
-    Logger.logInfo("Detected Localizable.strings changes:")
-    diffs.forEach { Logger.logInfo($0.description) }
+    Logger.logWarning("Detected Localizable.strings changes:")
+    diffs.forEach { Logger.logWarning($0.description) }
     saveAppLanguages()
     Network.sharedInstance.performRequest(.UploadLanguages(diffs: diffs), token: token) {
       (_, error) -> Void in

@@ -13,7 +13,8 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    print(Localizable.stringForKey("Testing"))
+    print(localized(.Testing))
+    print(localized(.AtuaMaeDe4("wtf")))
     // Do any additional setup after loading the view, typically from a nib.
   }
 
@@ -24,19 +25,9 @@ class ViewController: UIViewController {
 
   @IBAction func clicked() {
     Localizable.update { () -> Void in
-      print(Localizable.stringForKey("Testing"))
+      print(localized(.Testing))
+      print(localized(.AtuaMaeDe4("wtf")))
     }
   }
 
-}
-
-enum Localized {
-  case Testing
-
-  var string: String {
-    switch self {
-    case .Testing:
-      return Localizable.stringForKey("Testing")
-    }
-  }
 }
