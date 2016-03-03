@@ -14,7 +14,7 @@ public class Localizable: NSObject {
   private static var language: Language = Language.currentLanguage()
 
   public class func setup() {
-    guard let token = AppHelper.localizableToken() else {
+    guard let token = AppHelper.localizableToken else {
       Logger.logError("Cannot initialize the SDK without a token, set 'LocalizableToken' on your "
         + "Info.plist file or call Localizable.setup(token: token)")
       return
@@ -24,8 +24,11 @@ public class Localizable: NSObject {
 
   public class func setup(token token: String) {
     self.token = token
-    Language.detectMissingStrings()
-    Language.upload(token)
+    update()
+    if AppHelper.debugMode {
+      Language.detectMissingStrings()
+      Language.upload(token)
+    }
   }
 
   public class func update(completion: (() -> Void)? = nil) {

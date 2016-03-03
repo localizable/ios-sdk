@@ -16,4 +16,19 @@ public enum LogLevel: Int {
   case Error = 3
   case Http = 4
 
+  var name: String {
+    switch self {
+    case .None:
+      return "None"
+    case .Info:
+      return "Info"
+    case .Warning:
+      return "Warning"
+    case .Error:
+      return "Error"
+    case .Http:
+      return "HTTP"
+    }
+  }
+
 }

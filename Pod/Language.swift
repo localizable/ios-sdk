@@ -113,7 +113,7 @@ extension Language {
     }
   }
 
-  private class func localizableVersionDiffs() -> [Diff]? {
+  private class func localizableVersionDiffs() -> [LanguageDiff]? {
     let appLanguages = Language.appLanguages()
     let oldAppLanguages = Language.oldAppLanguages()
 
@@ -124,7 +124,7 @@ extension Language {
           return nil
       }
       return (language, olderLanguage)
-      }.flatMap { Diff(newLanguage: $0.0, oldLanguage: $0.1) }
+      }.flatMap { LanguageDiff(newLanguage: $0.0, oldLanguage: $0.1) }
 
     guard languageDifferences.count > 0 else {
       return nil

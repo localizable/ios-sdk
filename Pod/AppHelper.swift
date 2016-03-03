@@ -16,7 +16,7 @@ class AppHelper {
 
   private static let defaultLanguage = "en"
 
-  class func localizableToken() -> String? {
+  class var localizableToken: String? {
     return stringFromPlist(AppHelper.tokenKey)
   }
 
@@ -33,9 +33,75 @@ class AppHelper {
     return AppHelper.bundleForLanguageCode(code)?.localizedStringForKey(key, value: nil, table: nil)
   }
 
+  class var debugMode: Bool {
+    guard !DeviceHelper.isSimulator else {
+      return true
+    }
+
+    guard let embeddedMobileProvision = embeddedMobileProvision else {
+      return false
+    }
+
+    return embeddedMobileProvision.containsString("<key>get-task-allow</key><true/>")
+  }
+
+  class var name: String? {
+    return stringFromPlist("CFBundleName")
+  }
+
+  class var bundle: String? {
+    return NSBundle.mainBundle().bundleIdentifier
+  }
+
+  class var version: String? {
+    return stringFromPlist("CFBundleShortVersionString")
+  }
+
+  class var build: String? {
+    return stringFromPlist("CFBundleVersion")
+  }
+
+  class var json: [String: AnyObject] {
+    var json = [String: AnyObject]()
+
+    if let name = name {
+      json["name"] = name
+    }
+
+    if let bundle = bundle {
+      json["bundle"] = bundle
+    }
+
+    if let version = version {
+      json["version"] = version
+    }
+
+    if let build = build {
+      json["build"] = build
+    }
+
+    return json
+  }
+
 }
 
 private extension AppHelper {
+
+  private static var embeddedMobileProvision: String? = {
+    guard let path = NSBundle.mainBundle().pathForResource("embedded", ofType: "mobileprovision"),
+      data = NSData(contentsOfFile: path) else {
+        return nil
+    }
+    let bytes = UnsafePointer<CChar>(data.bytes)
+    var profile = ""
+    for index in 0..<data.length {
+      profile += String(format: "%c", bytes[index])
+    }
+
+    return profile.componentsSeparatedByCharactersInSet(.whitespaceAndNewlineCharacterSet())
+      .joinWithSeparator("")
+
+  }()
 
   private class func stringFromPlist(key: String) -> String? {
     guard let infoPlist = NSBundle.mainBundle().infoDictionary else {
@@ -50,5 +116,5 @@ private extension AppHelper {
     }
     return NSBundle(path: path)
   }
-
+  
 }

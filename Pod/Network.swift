@@ -67,6 +67,7 @@ private extension Network {
         }
       }
 
+      Logger.logHttp("\(method.rawValue) to \(url) with token \(token)")
       let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
         if let sampleData = sampleData {
           completion?(sampleData, nil)

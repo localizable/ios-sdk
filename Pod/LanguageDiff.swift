@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Diff: CustomStringConvertible {
+struct LanguageDiff: CustomStringConvertible {
   let code: String
   let update: [String: String]
   let remove: [String]
