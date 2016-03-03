@@ -54,7 +54,7 @@ enum API {
         "code": language.code,
         "version": language.version + 1,
         "localized_strings": [
-          "Testing": "Ay ay ay caramba \(language.version)"
+          //"Testing": "Ay ay ay caramba \(language.version)"
         ]
       ]
     case .Usage, .UploadLanguages:

@@ -14,7 +14,6 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print(localized(.Testing))
-    print(localized(.AtuaMaeDe4("wtf")))
     // Do any additional setup after loading the view, typically from a nib.
   }
 
@@ -24,9 +23,9 @@ class ViewController: UIViewController {
   }
 
   @IBAction func clicked() {
+    Localizable.setLanguageWithCode("de")
     Localizable.update { () -> Void in
       print(localized(.Testing))
-      print(localized(.AtuaMaeDe4("wtf")))
     }
   }
 

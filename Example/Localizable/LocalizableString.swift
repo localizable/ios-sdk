@@ -2,7 +2,7 @@ import UIKit
 import Localizable
 
 enum LocalizableString {
-	/// Je suis le test
+	/// English String
 	case Testing
 	/// Ohohoho maluca %@
 	case AtuaMaeDe4(String)

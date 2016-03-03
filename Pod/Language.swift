@@ -67,12 +67,26 @@ private extension Language {
 extension Language {
 
   class func currentLanguage() -> Language {
-    return loadLanguageFromDisk(defaultLanguageCode())
+    return loadLanguageFromDisk(currentLanguageCode())
+  }
+
+  class func languageForCode(code: String) -> Language? {
+    guard availableLanguageCodes().contains(code) else {
+      return nil
+    }
+    return loadLanguageFromDisk(code)
   }
 
   // When language is removed, simulator needs to reset otherwise removed language still shows here
-  private class func availableLanguageCodes() -> [String] {
+  class func availableLanguageCodes() -> [String] {
     return NSBundle.mainBundle().localizations
+  }
+
+  private class func currentLanguageCode() -> String {
+    guard let currentLanguageCode = UserDefaultsHelper.currentLanguageCode else {
+      return defaultLanguageCode()
+    }
+    return currentLanguageCode
   }
 
   private class func defaultLanguageCode() -> String {

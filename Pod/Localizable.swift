@@ -41,6 +41,15 @@ public class Localizable: NSObject {
     }
   }
 
+  public class func setLanguageWithCode(code: String) {
+    guard let language = Language.languageForCode(code) else {
+      Logger.logError("Cannot set language to \(code) because it's not one of the available " +
+        "languages: \(Language.availableLanguageCodes().joinWithSeparator(", "))")
+      return
+    }
+    self.language = language
+  }
+
   public class func stringForKey(key: String, _ arguments: String...) -> String {
     guard arguments.count > 0 else {
       return language.stringForKey(key)

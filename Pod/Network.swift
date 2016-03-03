@@ -59,15 +59,20 @@ private extension Network {
       request.addValue("Token \(token)", forHTTPHeaderField: "Authorization")
       request.HTTPMethod = method.rawValue
 
+      Logger.logHttp("\(method.rawValue) to \(url) with token \(token)")
       if let json = json where method != .GET {
         do {
-          request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
+          let jsonData = try NSJSONSerialization.dataWithJSONObject(json,
+            options: .PrettyPrinted)
+          request.HTTPBody = jsonData
+          if let jsonString = String(data: jsonData, encoding: NSUTF8StringEncoding) {
+            Logger.logHttp(jsonString)
+          }
         } catch {
           Logger.logError("Could not serialize \(json.description) into JSON")
         }
       }
 
-      Logger.logHttp("\(method.rawValue) to \(url) with token \(token)")
       let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
         if let sampleData = sampleData {
           completion?(sampleData, nil)
