@@ -6,5 +6,6 @@
   Copyright © 2016 CocoaPods. All rights reserved.
 */
 
-"Testing" = "Base string";
-"Atua.mae.de.4" = "Ohohoho maluca %@";
+"Hello" = "Hello";
+"Goodbye" = "Goodbye";
+"💩" = "poop";

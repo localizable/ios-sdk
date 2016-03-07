@@ -48,7 +48,7 @@ private extension Network {
       }
 
       guard let requestURL = NSURL(string: url) else {
-        Logger.logError("Invalid url \(url)")
+        Logger.logHttp("Invalid url \(url)")
         return
       }
 
@@ -69,7 +69,7 @@ private extension Network {
             Logger.logHttp(jsonString)
           }
         } catch {
-          Logger.logError("Could not serialize \(json.description) into JSON")
+          Logger.logHttp("Could not serialize \(json.description) into JSON")
         }
       }
 
@@ -89,11 +89,11 @@ private extension Network {
               as? [String: AnyObject] {
                 completion?(json, nil)
             } else {
-              Logger.logError("Could not cast \(jsonString) into [String: AnyObject]")
+              Logger.logHttp("Could not cast \(jsonString) into [String: AnyObject]")
               completion?([:], nil)
             }
           } catch {
-            Logger.logError("Could not deserialize \(jsonString) into [String: AnyObject]")
+            Logger.logHttp("Could not deserialize \(jsonString) into [String: AnyObject]")
             completion?([:], nil)
           }
         }

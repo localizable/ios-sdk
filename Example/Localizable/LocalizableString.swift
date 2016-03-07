@@ -2,10 +2,10 @@ import UIKit
 import Localizable
 
 enum LocalizableString {
-	/// English String
-	case Testing
-	/// Ohohoho maluca %@
-	case AtuaMaeDe4(String)
+	/// Hello
+	case Hello
+	/// Goodbye
+	case Goodbye
 }
 
 extension LocalizableString: CustomStringConvertible {
@@ -13,10 +13,10 @@ extension LocalizableString: CustomStringConvertible {
 
 	var string: String {
 		switch self {
-			 case .Testing:
-				 return Localizable.stringForKey("Testing")
-			 case .AtuaMaeDe4(let p0):
-				 return Localizable.stringForKey("Atua.mae.de.4", p0)
+			 case .Hello:
+				 return Localizable.stringForKey("Hello")
+			 case .Goodbye:
+				 return Localizable.stringForKey("Goodbye")
 		}
 	}
 }

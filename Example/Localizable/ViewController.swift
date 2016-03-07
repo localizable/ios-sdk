@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    print(localized(.Testing))
+    print(localized(.Hello))
     // Do any additional setup after loading the view, typically from a nib.
   }
 
@@ -23,9 +23,10 @@ class ViewController: UIViewController {
   }
 
   @IBAction func clicked() {
+    print(Localizable.stringForKey("Hello"))
     Localizable.setLanguageWithCode("de")
     Localizable.update { () -> Void in
-      print(localized(.Testing))
+      print(localized(.Hello))
     }
   }
 

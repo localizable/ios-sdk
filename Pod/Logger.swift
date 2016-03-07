@@ -36,7 +36,7 @@ private extension Logger {
 
   private class func log(message: String, logLevel: LogLevel) {
     if logLevel.rawValue <= Logger.logLevel.rawValue {
-      print("[\(tag) \(logLevel.name)]: \(message)")
+      print("[\(tag)][\(logLevel.name)]: \(message)")
     }
   }
 

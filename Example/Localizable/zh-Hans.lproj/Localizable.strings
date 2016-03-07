@@ -6,5 +6,5 @@
   Copyright © 2016 CocoaPods. All rights reserved.
 */
 
-"Hello" = "Hello";
-"Goodbye" = "Goodbye";
+"Hello" = "你好";
+"Goodbye" = "再见";

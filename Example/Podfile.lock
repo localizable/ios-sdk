@@ -13,7 +13,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Localizable: be5fb66b21ef24befe16d8fb6e07d24c7d443017
+  Localizable: 9c5006889c000aa7d585625833fe65cdd4522ced
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
   Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
 

@@ -11,7 +11,11 @@ import Foundation
 public class Localizable: NSObject {
 
   private static var token: String?
-  private static var language: Language = Language.currentLanguage()
+  private static var language: Language = Language.currentLanguage() {
+    didSet {
+      UserDefaultsHelper.currentLanguageCode = language.code
+    }
+  }
 
   public class func setup() {
     guard let token = AppHelper.localizableToken else {
