@@ -7,11 +7,11 @@ class LanguageSpec: QuickSpec {
   override func spec() {
     describe("The available languages") {
       it("are") {
-        expect(Set(Language.availableLanguageCodes())) == Set(["Base", "en", "fr", "es", "pt-PT", "de", "zh-Hans"])
+        expect(Set(AppLanguage.availableLanguageCodes)) == Set(["Base", "en", "fr", "es", "pt-PT", "de", "zh-Hans"])
       }
     }
     describe("The English Language") {
-      let language = Language(code: "en", version: 0, localizedStrings: [:])
+      let language = AppLanguage(code: "en")
 
       it("can say hello") {
         expect(language["Hello"]) == "Hello"
@@ -27,7 +27,7 @@ class LanguageSpec: QuickSpec {
     }
 
     describe("The Base Language") {
-      let language = Language(code: "Base", version: 0, localizedStrings: [:])
+      let language = AppLanguage(code: "Base")
 
       it("can say hello") {
         expect(language["Hello"]) == "Hello"

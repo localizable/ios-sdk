@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol JSONFailableRepresentable: JSONConvertible {
+protocol JSONRepresentable: JSONConvertible {
 
   init?(json: [String: AnyObject])
 

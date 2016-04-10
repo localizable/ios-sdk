@@ -10,8 +10,8 @@ import Foundation
 
 enum API {
 
-  case UpdateLanguage(language: Language)
-  case UploadLanguages(diffs: [LanguageDiff])
+  case UpdateLanguage(language: LocalizableLanguage)
+  case UploadLanguages(languageDeltas: [AppLanguageDelta])
   case Usage(code: String)
 
   var method: Method {
@@ -54,7 +54,7 @@ enum API {
         "code": language.code,
         "version": language.version + 1,
         "localized_strings": [
-          //"Testing": "Ay ay ay caramba \(language.version)"
+          "Testing": "Ay ay ay caramba \(language.version)"
         ]
       ]
     case .Usage, .UploadLanguages:

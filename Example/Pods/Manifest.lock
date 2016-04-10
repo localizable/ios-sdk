@@ -1,20 +1,22 @@
 PODS:
-  - Localizable (0.1.0)
-  - Nimble (3.0.0)
-  - Quick (0.8.0)
+  - Localizable (0.1.0):
+    - Localizable/Core (= 0.1.0)
+  - Localizable/Core (0.1.0)
+  - Nimble (4.0.0)
+  - Quick (0.9.1)
 
 DEPENDENCIES:
   - Localizable (from `../`)
-  - Nimble (= 3.0.0)
-  - Quick (~> 0.8.0)
+  - Nimble
+  - Quick
 
 EXTERNAL SOURCES:
   Localizable:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Localizable: 9c5006889c000aa7d585625833fe65cdd4522ced
-  Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
-  Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
+  Localizable: 5d633b2ac7ca5f75871314d25dc1b429ae692869
+  Nimble: 72bcc3e2f02242e6bfaaf8d9412ca7bfe3d8b417
+  Quick: a5221fc21788b6aeda934805e68b061839bc3165
 
 COCOAPODS: 0.39.0

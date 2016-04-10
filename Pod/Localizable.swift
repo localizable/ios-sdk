@@ -11,11 +11,14 @@ import Foundation
 public class Localizable: NSObject {
 
   private static var token: String?
-  private static var language: Language = Language.currentLanguage() {
-    didSet {
-      UserDefaultsHelper.currentLanguageCode = language.code
-    }
-  }
+
+  private static var localizableLanguage: LocalizableLanguage = {
+    return LocalizableLanguage(code: Localizable.currentLanguageCode)
+  }()
+
+  private static var appLanguage: AppLanguage = {
+    return AppLanguage(code: Localizable.currentLanguageCode)
+  }()
 
   public class func setup() {
     guard let token = AppHelper.localizableToken else {
@@ -30,8 +33,8 @@ public class Localizable: NSObject {
     self.token = token
     update()
     if AppHelper.debugMode {
-      Language.detectMissingStrings()
-      Language.upload(token)
+      AppLanguage.printMissingStrings()
+      AppLanguage.upload(token)
     }
   }
 
@@ -40,26 +43,53 @@ public class Localizable: NSObject {
       Logger.logError("Cannot refresh without setting a token")
       return
     }
-    language.update(token) { _ in
+    localizableLanguage.update(token) { _ in
       completion?()
     }
   }
 
   public class func setLanguageWithCode(code: String) {
-    guard let language = Language.languageForCode(code) else {
-      Logger.logError("Cannot set language to \(code) because it's not one of the available " +
-        "languages: \(Language.availableLanguageCodes().joinWithSeparator(", "))")
-      return
+    guard AppLanguage.availableLanguageCodes.contains(code) else {
+        Logger.logError("Cannot set language to \(code) because it's not one of the available " +
+          "languages: \(AppLanguage.availableLanguageCodes.joinWithSeparator(", "))")
+        return
     }
-    self.language = language
+
+    UserDefaultsHelper.currentLanguageCode = code
+    self.appLanguage = AppLanguage(code: code)
+    self.localizableLanguage = LocalizableLanguage(code: code)
   }
 
   public class func stringForKey(key: String, _ arguments: String...) -> String {
-    guard arguments.count > 0 else {
-      return language.stringForKey(key)
+    let arguments = arguments.map { $0 as CVarArgType }
+
+    if localizableLanguage.containsStringForKey(key) {
+      return localizableLanguage.stringForKey(key, arguments)
     }
-    return String(format: language.stringForKey(key),
-      arguments: arguments.map { $0 as CVarArgType} )
+
+    return appLanguage.stringForKey(key, arguments)
+  }
+
+}
+
+// MARK: Accessors
+extension Localizable {
+
+  private static let defaultLanguage = "en"
+
+  static var currentLanguageCode: String {
+    guard let currentLanguageCode = UserDefaultsHelper.currentLanguageCode else {
+      return defaultLanguageCode
+    }
+    return currentLanguageCode
+  }
+
+  static var defaultLanguageCode: String {
+    guard let preferredLanguageCode = NSBundle.mainBundle().preferredLocalizations.first
+      where AppLanguage.availableLanguageCodes.contains(preferredLanguageCode) else {
+        return defaultLanguage
+    }
+    return preferredLanguageCode
   }
   
 }

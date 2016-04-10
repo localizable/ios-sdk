@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol JSONConvertible {
+
+  var json: [String: AnyObject] { get }
+
+}

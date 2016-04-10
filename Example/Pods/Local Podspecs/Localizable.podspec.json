@@ -1,20 +1,39 @@
 {
   "name": "Localizable",
   "version": "0.1.0",
-  "summary": "A short description of Localizable.",
+  "summary": "Localizable.io SDK, manage your Localizable strings online",
   "description": "",
-  "homepage": "https://github.com/ivanbruel/Localizable",
+  "homepage": "https://github.com/Localizable/Localizable",
   "license": "MIT",
   "authors": {
     "Ivan Bruel": "ivan.bruel@gmail.com"
   },
   "source": {
-    "git": "https://github.com/ivanbruel/Localizable.git",
+    "git": "https://github.com/Localizable/Localizable.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://twitter.com/ivanbruel",
   "platforms": {
-    "ios": "8.0"
+    "ios": "8.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/**/*.swift"
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Pod/*.swift"
+    },
+    {
+      "name": "RxSwift",
+      "source_files": "Source/RxSwift/*.swift",
+      "dependencies": {
+        "RxSwift": [
+          "~> 2.1"
+        ]
+      }
+    }
+  ]
 }

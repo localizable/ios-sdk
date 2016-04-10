@@ -8,8 +8,8 @@ end
 target 'Localizable_Tests', :exclusive => true do
   pod 'Localizable', :path => '../'
 
-  pod 'Quick', '~> 0.8.0'
-  pod 'Nimble', '3.0.0'
+  pod 'Quick'
+  pod 'Nimble'
 end
 
 # Hack to fix testability until cocoapods gets an update

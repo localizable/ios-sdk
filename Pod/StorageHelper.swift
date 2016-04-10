@@ -12,9 +12,9 @@ class StorageHelper: NSObject {
 
   private static let domain = "Localizable"
 
-  class func saveObject(object: AnyObject?, filename: String) {
+  class func saveObject(object: AnyObject?, directory: String? = nil, filename: String) {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) { () -> Void in
-      guard let path = pathForFilename(filename) else {
+      guard let path = pathForFilename(directory, filename: filename) else {
         return
       }
 
@@ -32,8 +32,8 @@ class StorageHelper: NSObject {
     }
   }
 
-  class func loadObject<T>(filename: String) -> T? {
-    guard let path = pathForFilename(filename) else {
+  class func loadObject<T>(directory: String? = nil, filename: String) -> T? {
+    guard let path = pathForFilename(directory, filename: filename) else {
       return nil
     }
 
@@ -49,25 +49,28 @@ class StorageHelper: NSObject {
 // MARK: Helpers
 private extension StorageHelper {
 
-  private class func pathForFilename(filename: String) -> String? {
+  private class func pathForFilename(directory: String? = nil, filename: String) -> String? {
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
 
     guard let userDirectory = paths.first else {
       return nil
     }
 
-    let directory = "\(userDirectory)/\(StorageHelper.domain)"
+    var fileDirectory = "\(userDirectory)/\(StorageHelper.domain)"
+    if let directory = directory {
+      fileDirectory = fileDirectory.stringByAppendingString("/\(directory)")
+    }
 
-    if !NSFileManager.defaultManager().fileExistsAtPath(directory) {
+    if !NSFileManager.defaultManager().fileExistsAtPath(fileDirectory) {
       do {
       try NSFileManager.defaultManager()
-        .createDirectoryAtPath(directory, withIntermediateDirectories: false, attributes: nil)
+        .createDirectoryAtPath(fileDirectory, withIntermediateDirectories: true, attributes: nil)
       } catch {
-        Logger.logError("Could not create folder \(directory)")
+        Logger.logError("Could not create folder \(fileDirectory)")
       }
     }
 
-    return "\(directory)/\(filename)"
+    return "\(fileDirectory)/\(filename)"
 
   }
 
