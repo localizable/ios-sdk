@@ -31,11 +31,11 @@ public class Localizable: NSObject {
 
   public class func setup(token token: String) {
     self.token = token
-    update()
     if AppHelper.debugMode {
       AppLanguage.printMissingStrings()
       AppLanguage.upload(token)
     }
+    update()
   }
 
   public class func update(completion: (() -> Void)? = nil) {

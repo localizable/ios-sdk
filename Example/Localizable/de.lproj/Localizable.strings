@@ -6,5 +6,5 @@
   Copyright © 2016 CocoaPods. All rights reserved.
 */
 
-"Hello" = "Hallo";
+"Hello" = "Hallo This should not work";
 "Goodbye" = "Auf Wiedersehen";

@@ -10,9 +10,11 @@ import Foundation
 
 class Network: NSObject {
 
-  private static let baseURL = "http://localhost:8080/api/v1/"
+  private static let baseURL = "http://192.168.0.144:4000/api/v1/"
   private static let timeout = 60.0
   private static let jsonHeader = "application/json"
+
+  var mockData: Bool = false
 
   static var sharedInstance = Network()
 
@@ -56,7 +58,7 @@ private extension Network {
         timeoutInterval: Network.timeout)
       request.addValue(Network.jsonHeader, forHTTPHeaderField: "Content-Type")
       request.addValue(Network.jsonHeader, forHTTPHeaderField: "Accept")
-      request.addValue("Token \(token)", forHTTPHeaderField: "Authorization")
+      request.addValue(token, forHTTPHeaderField: "X-LOCALIZABLE-TOKEN")
       request.HTTPMethod = method.rawValue
 
       Logger.logHttp("\(method.rawValue) to \(url) with token \(token)")
@@ -74,14 +76,14 @@ private extension Network {
       }
 
       let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-        if let sampleData = sampleData {
+        if let sampleData = sampleData where self.mockData {
           completion?(sampleData, nil)
           return
         }
 
         if let error = error {
           completion?(nil, error)
-        } else if let data = data {
+        } else if let data = data where data.length > 0 {
           let jsonString = String(data: data, encoding: NSUTF8StringEncoding)
 
           do {
@@ -96,6 +98,8 @@ private extension Network {
             Logger.logHttp("Could not deserialize \(jsonString) into [String: AnyObject]")
             completion?([:], nil)
           }
+        } else {
+          completion?([:], nil)
         }
       }
 

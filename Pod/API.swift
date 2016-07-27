@@ -37,13 +37,14 @@ enum API {
   var json: [String: AnyObject]? {
     switch self {
     case .UpdateLanguage(let language):
-      return ["version": language.version]
+      return ["modified_at": language.modifiedAt]
     case .Usage:
       return nil
     case .UploadLanguages(let diff):
       return [
         "languages": diff.map { $0.json },
-        "app": AppHelper.json]
+        "app": AppHelper.json,
+        "platform": "ios"]
     }
   }
 
@@ -52,9 +53,9 @@ enum API {
     case .UpdateLanguage(let language):
       return [
         "code": language.code,
-        "version": language.version + 1,
+        "modified_at": language.modifiedAt + 1,
         "localized_strings": [
-          "Testing": "Ay ay ay caramba \(language.version)"
+          "Testing": "Ay ay ay caramba \(language.modifiedAt)"
         ]
       ]
     case .Usage, .UploadLanguages:

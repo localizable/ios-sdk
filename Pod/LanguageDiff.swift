@@ -11,43 +11,41 @@ import Foundation
 struct AppLanguageDelta: JSONConvertible {
   
   let code: String
-  let updated: [String: String]
-  let removed: [String]
+  let update: [String: String]
+  let remove: [String]
 
   init?(newLanguage: AppLanguage, oldLanguage: AppLanguage?) {
 
-    guard let oldLanguage = oldLanguage else {
-      return nil
-    }
+    let oldLanguageStrings = oldLanguage?.strings ?? [:]
 
-    let updated = newLanguage.strings.flatMap { (key, value) in
-      oldLanguage.strings[key] == value ? nil : (key, value)
+    let update = newLanguage.strings.flatMap { (key, value) in
+      oldLanguageStrings[key] == value ? nil : (key, value)
       }.reduce([String: String]()) { (var dict, pair) in
         dict[pair.0] = pair.1
         return dict
     }
 
-    let removed = oldLanguage.strings.flatMap { (key, value) in
+    let remove = oldLanguageStrings.flatMap { (key, value) in
       newLanguage.strings[key] == nil ? key : nil
     }
 
-    self.init(code: newLanguage.code, updated: updated, removed: removed)
+    self.init(code: newLanguage.code, update: update, remove: remove)
   }
 
-  init?(code: String, updated: [String: String], removed: [String]) {
-    guard updated.count > 0 || removed.count > 0 else {
+  init?(code: String, update: [String: String], remove: [String]) {
+    guard update.count > 0 || remove.count > 0 else {
       return nil
     }
     self.code = code
-    self.updated = updated
-    self.removed = removed
+    self.update = update
+    self.remove = remove
   }
 
   var json: [String: AnyObject] {
     return [
       "code": code,
-      "updated": updated,
-      "removed": removed
+      "update": update,
+      "remove": remove
     ]
   }
 }

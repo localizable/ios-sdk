@@ -31,11 +31,18 @@
 		<string>armv7</string>
 	</array>
 	<key>LocalizableToken</key>
-	<string>GG</string>
+	<string>0rtUidIWTUFO90u8k8ly4g</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
