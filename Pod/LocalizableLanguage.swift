@@ -11,6 +11,12 @@ import Foundation
 // MARK: Properties and Initializer
 final class LocalizableLanguage: Language {
 
+  private struct JSONKeys {
+    static let code = "code"
+    static let modifiedAt = "modified_at"
+    static let strings = "keywords"
+  }
+
   private static let directory = "LocalizableLanguage"
 
   let code: String
@@ -30,9 +36,9 @@ final class LocalizableLanguage: Language {
         return
     }
 
-    let code = json["code"] as? String ?? code
-    let version = json["modified_at"] as? Int ?? 0
-    let strings = json["strings"] as? [String: String] ?? [:]
+    let code = json[JSONKeys.code] as? String ?? code
+    let version = json[JSONKeys.modifiedAt] as? Int ?? 0
+    let strings = json[JSONKeys.strings] as? [String: String] ?? [:]
 
     self.init(code: code, modifiedAt: version, strings: strings)
   }
@@ -42,9 +48,9 @@ final class LocalizableLanguage: Language {
 extension LocalizableLanguage: JSONRepresentable {
 
   convenience init?(json: [String: AnyObject]) {
-    guard let code = json["code"] as? String,
-      modifiedAt = json["modified_at"] as? Int,
-      strings = json["strings"] as? [String: String] else {
+    guard let code = json[JSONKeys.code] as? String,
+      modifiedAt = json[JSONKeys.modifiedAt] as? Int,
+      strings = json[JSONKeys.strings] as? [String: String] else {
         return nil
     }
 
@@ -53,9 +59,9 @@ extension LocalizableLanguage: JSONRepresentable {
 
   var json: [String: AnyObject] {
     return [
-      "code": code,
-      "modified_at": modifiedAt,
-      "strings": strings
+      JSONKeys.code: code,
+      JSONKeys.modifiedAt: modifiedAt,
+      JSONKeys.strings: strings
     ]
   }
 
@@ -74,12 +80,14 @@ extension LocalizableLanguage {
 extension LocalizableLanguage {
 
   func update(token: String, completion: ((NSError?) -> Void)?) {
-    Network.sharedInstance.performRequest(.UpdateLanguage(language: self), token: token) {
-      (json, error) in
+    Network.sharedInstance
+      .performRequest(.UpdateLanguage(language: self), token: token) { [weak self] (json, error) in
 
-      guard let strings = json?["keywords"] as? [String: String],
-        modifiedAt = json?["modified_at"] as? String,
-        code = json?["code"] as? String where code == self.code else {
+      guard let `self` = self,
+        code = json?[JSONKeys.code] as? String,
+        modifiedAt = json?[JSONKeys.modifiedAt] as? String,
+        strings = json?[JSONKeys.strings] as? [String: String]
+        where code == self.code else {
           completion?(error)
           return
       }
@@ -89,12 +97,5 @@ extension LocalizableLanguage {
       self.save()
       completion?(error)
     }
-  }
-  
-}
-
-private func += <K, V> (inout left: [K:V], right: [K:V]) {
-  for (k, v) in right {
-    left.updateValue(v, forKey: k)
   }
 }

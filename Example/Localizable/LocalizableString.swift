@@ -1,4 +1,3 @@
-import UIKit
 import Localizable
 
 enum LocalizableString {
@@ -6,6 +5,8 @@ enum LocalizableString {
 	case Hello
 	/// Goodbye
 	case Goodbye
+	/// So new, so fresh and clean
+	case NewString
 }
 
 extension LocalizableString: CustomStringConvertible {
@@ -17,6 +18,8 @@ extension LocalizableString: CustomStringConvertible {
 				 return Localizable.stringForKey("Hello")
 			 case .Goodbye:
 				 return Localizable.stringForKey("Goodbye")
+			 case .NewString:
+				 return Localizable.stringForKey("NewString")
 		}
 	}
 }

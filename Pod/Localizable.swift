@@ -12,13 +12,11 @@ public class Localizable: NSObject {
 
   private static var token: String?
 
-  private static var localizableLanguage: LocalizableLanguage = {
-    return LocalizableLanguage(code: Localizable.currentLanguageCode)
-  }()
+  private static var localizableLanguage: LocalizableLanguage =
+    LocalizableLanguage(code: Localizable.currentLanguageCode)
 
-  private static var appLanguage: AppLanguage = {
-    return AppLanguage(code: Localizable.currentLanguageCode)
-  }()
+  private static var appLanguage: AppLanguage = AppLanguage(code: Localizable.currentLanguageCode)
+
 
   public class func setup() {
     guard let token = AppHelper.localizableToken else {

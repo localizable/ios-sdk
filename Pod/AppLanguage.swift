@@ -10,6 +10,11 @@ import Foundation
 
 final class AppLanguage: Language {
 
+  private struct JSONKeys {
+    static let code = "code"
+    static let strings = "keywords"
+  }
+
   private static let directory = "AppLanguage"
   private static let baseLanguageCode = "Base"
 
@@ -75,8 +80,8 @@ extension AppLanguage {
 extension AppLanguage: JSONRepresentable {
 
   convenience init?(json: [String: AnyObject]) {
-    guard let code = json["code"] as? String,
-      strings = json["strings"] as? [String: String] else {
+    guard let code = json[JSONKeys.code] as? String,
+      strings = json[JSONKeys.strings] as? [String: String] else {
         return nil
     }
 
@@ -85,8 +90,8 @@ extension AppLanguage: JSONRepresentable {
 
   var json: [String: AnyObject] {
     return [
-      "code": code,
-      "strings": strings
+      JSONKeys.code: code,
+      JSONKeys.strings: strings
     ]
   }
 }
@@ -126,11 +131,11 @@ extension AppLanguage {
 extension AppLanguage {
 
   static func upload(token: String) {
-    guard let languageDeltas = languageDeltas else {
-      return
-    }
-    Logger.logWarning("Detected Localizable.strings changes:")
+    guard let languageDeltas = languageDeltas else { return }
+
+    Logger.logWarning("Detected string changes:")
     languageDeltas.forEach { Logger.logWarning($0.json.description) }
+
     Network.sharedInstance
       .performRequest(.UploadLanguages(languageDeltas: languageDeltas), token: token) {
         (_, error) -> Void in

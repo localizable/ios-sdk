@@ -1,11 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'Localizable_Example', :exclusive => true do
+target 'Localizable_Example' do
   pod 'Localizable', :path => '../'
 end
 
-target 'Localizable_Tests', :exclusive => true do
+target 'Localizable_Tests' do
   pod 'Localizable', :path => '../'
 
   pod 'Quick'
