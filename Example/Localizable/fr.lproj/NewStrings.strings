@@ -6,4 +6,4 @@
   Copyright © 2016 CocoaPods. All rights reserved.
 */
 
-"NewString" = "So new, so fresh and clean";
+"NewString" = "So new, so fresh and clean %@";

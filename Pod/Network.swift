@@ -105,5 +105,4 @@ private extension Network {
 
       task.resume()
   }
-
 }
