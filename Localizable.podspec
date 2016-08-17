@@ -21,11 +21,11 @@ Localizable.io is a SaaS for you to manage your localizable strings without the 
 to submit your app to the AppStore on every change
                        DESC
 
-  s.homepage         = "https://github.com/Localizable/Localizable"
+  s.homepage         = "https://github.com/localizable/ios-sdk"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Ivan Bruel" => "ivan.bruel@gmail.com" }
-  s.source           = { :git => "https://github.com/Localizable/Localizable.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/localizable/ios-sdk.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/ivanbruel'
 
   s.ios.deployment_target = '8.0'
@@ -42,10 +42,6 @@ to submit your app to the AppStore on every change
     ss.source_files  = "Pod/*.swift"
   end
 
-  s.subspec "RxSwift" do |ss|
-    ss.source_files = "Source/RxSwift/*.swift"
-    ss.dependency "RxSwift", "~> 2.1"
-  end
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
