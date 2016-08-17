@@ -15,7 +15,7 @@ struct AppLanguageDelta: JSONConvertible {
     static let update = "update"
     static let remove = "remove"
   }
-  
+
   let code: String
   let update: [String: String]
   let remove: [String]

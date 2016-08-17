@@ -18,7 +18,7 @@ protocol Language {
   func stringForKey(key: String) -> String
   func stringForKey(key: String, _ arguments: [CVarArgType]) -> String
   func containsStringForKey(key: String) -> Bool
-  
+
 }
 
 extension Language {

@@ -145,5 +145,5 @@ extension AppLanguage {
         }
     }
   }
-  
+
 }

@@ -10,11 +10,12 @@ import Foundation
 
 class Network: NSObject {
 
-  private static let baseURL = "http://192.168.0.144:4000/api/v1/"
+  private static let defaultApiURL = "http://192.168.0.144:4000/api/v1/"
   private static let timeout = 60.0
   private static let jsonHeader = "application/json"
 
   var mockData: Bool = false
+  var apiURL = Network.defaultApiURL
 
   static var sharedInstance = Network()
 
@@ -23,17 +24,16 @@ class Network: NSObject {
 
   func performRequest(api: API, token: String,
     completion: (([String: AnyObject]?, NSError?) -> Void)? = nil) {
-      let url = Network.urlFromPath(api.path)
+      let url = urlFromPath(api.path)
       performRequest(api.method, url: url, token: token, sampleData: api.sampleData, json: api.json,
         completion: completion)
   }
-
 }
 
 private extension Network {
 
-  private class func urlFromPath(path: String) -> String {
-    return "\(baseURL)\(path)"
+  private func urlFromPath(path: String) -> String {
+    return "\(apiURL)\(path)"
   }
 
   private func performRequest(method: Method = .GET, url: String, token: String,
@@ -75,34 +75,38 @@ private extension Network {
         }
       }
 
-      let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-        if let sampleData = sampleData where self.mockData {
-          completion?(sampleData, nil)
-          return
-        }
+    if let sampleData = sampleData where self.mockData {
+      completion?(sampleData, nil)
+      return
+    }
 
-        if let error = error {
-          completion?(nil, error)
-        } else if let data = data where data.length > 0 {
-          let jsonString = String(data: data, encoding: NSUTF8StringEncoding)
+    let task = session.dataTaskWithRequest(request) { (data, response, error) in
+      self.handleNetworkResponse(data, response: response, error: error, completion: completion)
+    }
+    task.resume()
+  }
 
-          do {
-            if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-              as? [String: AnyObject] {
-                completion?(json, nil)
-            } else {
-              Logger.logHttp("Could not cast \(jsonString) into [String: AnyObject]")
-              completion?([:], nil)
-            }
-          } catch {
-            Logger.logHttp("Could not deserialize \(jsonString) into [String: AnyObject]")
-            completion?([:], nil)
-          }
+  private func handleNetworkResponse(data: NSData?, response: NSURLResponse?, error: NSError?,
+                                     completion: (([String: AnyObject]?, NSError?) -> Void)?) {
+    if let error = error {
+      completion?(nil, error)
+    } else if let data = data where data.length > 0 {
+      let jsonString = String(data: data, encoding: NSUTF8StringEncoding)
+
+      do {
+        if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+          as? [String: AnyObject] {
+          completion?(json, nil)
         } else {
+          Logger.logHttp("Could not cast \(jsonString) into [String: AnyObject]")
           completion?([:], nil)
         }
+      } catch {
+        Logger.logHttp("Could not deserialize \(jsonString) into [String: AnyObject]")
+        completion?([:], nil)
       }
-
-      task.resume()
+    } else {
+      completion?([:], nil)
+    }
   }
 }
