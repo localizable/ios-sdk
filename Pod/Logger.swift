@@ -12,7 +12,7 @@ class Logger: NSObject {
 
   private static let tag = "Localizable"
 
-  static var logLevel = LogLevel.Http
+  static var logLevel = LogLevel.Info
 
   class func logHttp(message: String) {
     log(message, logLevel: .Http)
@@ -36,8 +36,10 @@ private extension Logger {
 
   private class func log(message: String, logLevel: LogLevel) {
     if logLevel.rawValue <= Logger.logLevel.rawValue {
-      print("[\(tag)][\(logLevel.name)]: \(message)")
+      let messages = message.componentsSeparatedByString("\n")
+      messages.forEach {
+        print("[\(tag)][\(logLevel.name)]: \($0)")
+      }
     }
   }
-
 }

@@ -70,7 +70,9 @@ extension AppLanguage {
 
     Logger.logInfo("Missing strings:")
     missing.forEach { (language, keys) -> () in
-      Logger.logInfo("\(language.code): \(keys)")
+      Logger.logInfo("Language: \(language.code)")
+      let strings = keys.map { "  \"\($0)\""}.joinWithSeparator("\n")
+      Logger.logInfo(strings)
     }
   }
 }
@@ -134,16 +136,15 @@ extension AppLanguage {
     guard let languageDeltas = languageDeltas else { return }
 
     Logger.logWarning("Detected string changes:")
-    languageDeltas.forEach { Logger.logWarning($0.json.description) }
+    languageDeltas.forEach { Logger.logWarning($0.description) }
 
     Network.sharedInstance
       .performRequest(.UploadLanguages(languageDeltas: languageDeltas), token: token) {
         (_, error) -> Void in
-        guard let _ = error else {
-          saveAppLanguages()
+        guard error == nil else {
           return
         }
+        saveAppLanguages()
     }
   }
-
 }

@@ -113,7 +113,7 @@
 		EC4E6809F2A080539CB93A3490FAC951 /* BeAKindOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C692617A28D2461916DE81B79B62D /* BeAKindOf.swift */; };
 		EF114BCD0F38330DD45828958ADD3FE0 /* NimbleEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147B0BD2365CEC32335115829196D7C /* NimbleEnvironment.swift */; };
 		F14BD45D78BCBAA4EFDA0334C94DF298 /* SatisfyAnyOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E0F2C1B77255A16FFE7D9FB0BCB21 /* SatisfyAnyOf.swift */; };
-		F3DC3E7C1088DF1D451AF18611B4B7BD /* Dictionary+Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151DEA2AA5E5D5892A4F669CA1658678 /* Dictionary+Update.swift */; };
+		F3DC3E7C1088DF1D451AF18611B4B7BD /* Dictionary+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151DEA2AA5E5D5892A4F669CA1658678 /* Dictionary+Helpers.swift */; };
 		F6EF12CE353D1EDA4FDD482D40DFCC62 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516F1607416C4D7F403C15C3253551A /* API.swift */; };
 		F896C3CD53C04B139CF97C277722167A /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 029DCA4C656F3540DEC5388140F695A0 /* XCTestSuite+QuickTestSuiteBuilder.m */; };
 		FA8FB7DB5EFB4C5F1DC8AB38C4463C44 /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD0BA68F5443DC03D1E9DA570588AC /* ExampleGroup.swift */; };
@@ -171,7 +171,7 @@
 		11026B7F6205846B298938A43FB27C22 /* Localizable.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Localizable.xcconfig; sourceTree = "<group>"; };
 		115214983B02D5307978B0FBC5154D44 /* DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Sources/Quick/DSL/DSL.swift; sourceTree = "<group>"; };
 		123BF1874AC58B16BFE4DB6FCB3C09B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		151DEA2AA5E5D5892A4F669CA1658678 /* Dictionary+Update.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dictionary+Update.swift"; sourceTree = "<group>"; };
+		151DEA2AA5E5D5892A4F669CA1658678 /* Dictionary+Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dictionary+Helpers.swift"; sourceTree = "<group>"; };
 		18F424BE2F93BD71CB0C57335503A9E7 /* NMBObjCMatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NMBObjCMatcher.swift; path = Sources/Nimble/Adapters/ObjectiveC/NMBObjCMatcher.swift; sourceTree = "<group>"; };
 		19B351BE93B31CB2CCF81673D135760B /* String+FileName.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+FileName.swift"; path = "Sources/Quick/String+FileName.swift"; sourceTree = "<group>"; };
 		1C94FD818C5B81BAB350C4212FB26621 /* Method.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -536,7 +536,7 @@
 				AFAFE307E445F383058C28C0EC45C3BA /* AppLanguage.swift */,
 				CD2BF5D40F01ECEC9F33847B2985E2EA /* AppLanguageDelta.swift */,
 				DC53974B52EFF033DF2DC401CA923ABC /* DeviceHelper.swift */,
-				151DEA2AA5E5D5892A4F669CA1658678 /* Dictionary+Update.swift */,
+				151DEA2AA5E5D5892A4F669CA1658678 /* Dictionary+Helpers.swift */,
 				9309B5A00E311241B098CDEEDAD4DFF6 /* JSONConvertible.swift */,
 				90551C473641AB53FA0F59018D9E8C52 /* JSONRepresentable.swift */,
 				2CB0428D4E0ACEAD77AF6F389E8DB7E7 /* Language.swift */,
@@ -827,7 +827,7 @@
 				4606A591556384E1DAF085A42D9915A1 /* AppLanguage.swift in Sources */,
 				E11C2DED794AA4012CF750A4E1226757 /* AppLanguageDelta.swift in Sources */,
 				5A3ED8ECD063637D4B1D8916DA22A1CC /* DeviceHelper.swift in Sources */,
-				F3DC3E7C1088DF1D451AF18611B4B7BD /* Dictionary+Update.swift in Sources */,
+				F3DC3E7C1088DF1D451AF18611B4B7BD /* Dictionary+Helpers.swift in Sources */,
 				B6A88D401819B7DBA6372CD92B89DE04 /* JSONConvertible.swift in Sources */,
 				DBEE5F8EAD10A162B801309F88E9ED3B /* JSONRepresentable.swift in Sources */,
 				7162D3A6D5A4D269A6398FAB5D261F11 /* Language.swift in Sources */,

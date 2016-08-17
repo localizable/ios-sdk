@@ -11,8 +11,7 @@ import Foundation
 class AppHelper {
 
   private static let tokenKey = "LocalizableToken"
-  private static let localizableFileName = "Localizable"
-  private static let localizableFileExtension = "strings"
+  private static let stringsFileExtension = "strings"
 
   private static let defaultLanguage = "en"
 
@@ -21,12 +20,21 @@ class AppHelper {
   }
 
   class func stringsForLanguageCode(code: String) -> [String: String] {
-    guard let bundle = bundleForLanguageCode(code),
-      path = bundle.pathForResource(AppHelper.localizableFileName,
-        ofType: AppHelper.localizableFileExtension) else {
-          return [:]
+    guard let bundle = bundleForLanguageCode(code) else {
+      return [:]
     }
-    return NSDictionary(contentsOfFile: path) as? [String: String] ?? [:]
+    let paths = bundle.pathsForResourcesOfType(AppHelper.stringsFileExtension, inDirectory: nil)
+    let dictionaries = paths.map { NSDictionary(contentsOfFile: $0) as? [String: String] ?? [:] }
+    return dictionaries
+      .reduce([:], combine: +)
+      .filter { (key, _) -> Bool in
+        let range = NSRange(location: 0, length: key.characters.count)
+        return AppHelper.storyboardRegEx.matchesInString(key, options: [], range: range).count == 0
+      }.reduce([:]) { (result, pair) -> [String: String] in
+        var result = result
+        result[pair.0] = pair.1
+        return result
+    }
   }
 
   class func stringForKey(key: String, languageCode code: String) -> String? {
@@ -87,6 +95,15 @@ class AppHelper {
 
 private extension AppHelper {
 
+  private static let storyboardRegEx: NSRegularExpression = {
+    do {
+      return try NSRegularExpression(pattern: "(\\w){3}-(\\w){2}-(\\w){3}\\.(\\w)+$",
+                                     options: [.CaseInsensitive])
+    } catch {
+      fatalError("Error building the regular expression used to match storyboard strings")
+    }
+  }()
+
   private static var embeddedMobileProvision: String? = {
     guard let path = NSBundle.mainBundle().pathForResource("embedded", ofType: "mobileprovision"),
       data = NSData(contentsOfFile: path) else {
@@ -116,5 +133,5 @@ private extension AppHelper {
     }
     return NSBundle(path: path)
   }
-
+  
 }

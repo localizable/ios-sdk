@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AppLanguageDelta: JSONConvertible {
+struct AppLanguageDelta: JSONConvertible, CustomStringConvertible {
 
   private struct JSONKeys {
     static let code = "code"
@@ -53,5 +53,19 @@ struct AppLanguageDelta: JSONConvertible {
       JSONKeys.update: update,
       JSONKeys.remove: remove
     ]
+  }
+
+  var description: String {
+    var buffer = [String]()
+    buffer.append("Language: \(code)")
+    if update.count > 0 {
+      buffer.append("  Updated:")
+      buffer += update.map { "    \"\($0.0)\" = \"\($0.1)\"" }
+    }
+    if remove.count > 0 {
+      buffer.append("  Removed:")
+      buffer += remove.map { "    \"\($0)\""}
+    }
+    return buffer.joinWithSeparator("\n")
   }
 }
