@@ -10,7 +10,7 @@ import Foundation
 
 class Network: NSObject {
 
-  private static let defaultApiURL = "http://192.168.0.144:4000/api/v1/"
+  private static let defaultApiURL = "https://localizable-api.herokuapp.com/api/v1/"
   private static let timeout = 60.0
   private static let jsonHeader = "application/json"
 
