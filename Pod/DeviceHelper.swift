@@ -8,10 +8,19 @@
 
 import Foundation
 
+#if os(watchOS)
+  import WatchKit
+#endif
+
 class DeviceHelper {
 
   class var isSimulator: Bool {
-    return UIDevice.currentDevice().name.containsString("Simulator")
+    #if (os(iOS) || os(tvOS))
+      return UIDevice.currentDevice().name.containsString("Simulator")
+    #elseif os(watchOS)
+      return WKInterfaceDevice.currentDevice().model.containsString("Simulator")
+    #else
+      return false
+    #endif
   }
-
 }

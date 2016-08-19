@@ -26,7 +26,8 @@ func + <K, V> (left: [K: V], right: [K: V]) -> [K: V] {
 }
 
 extension Dictionary {
-  func filter(_ isIncluded: (key: Key, value: Value) throws -> Bool) rethrows -> [Key: Value] {
+
+  func filter(isIncluded: (key: Key, value: Value) throws -> Bool) rethrows -> [Key: Value] {
     var d: [Key: Value] = [:]
     for (key, value) in self where try isIncluded(key: key, value: value) {
       d[key] = value

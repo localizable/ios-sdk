@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Localizable"
-  s.version          = "0.1.0"
+  s.version          = "0.1"
   s.summary          = "Localizable.io SDK, manage your Localizable strings online"
 
 # This description is used to generate tags and improve search results.
@@ -34,7 +34,6 @@ to submit your app to the AppStore on every change
   s.tvos.deployment_target = '9.0'
 
   s.requires_arc = true
-  #s.preserve_paths = "run"
 
   s.default_subspec = "Core"
 

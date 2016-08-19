@@ -26,7 +26,8 @@ struct AppLanguageDelta: JSONConvertible, CustomStringConvertible {
 
     let update = newLanguage.strings.flatMap { (key, value) in
       oldLanguageStrings[key] == value ? nil : (key, value)
-      }.reduce([String: String]()) { (var dict, pair) in
+      }.reduce([String: String]()) { (dict, pair) in
+        var dict = dict
         dict[pair.0] = pair.1
         return dict
     }

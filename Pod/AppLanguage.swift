@@ -124,7 +124,7 @@ extension AppLanguage {
   }
 
   static func saveAppLanguages() {
-    AppLanguage.allLanguages.map { $0.save() }
+    AppLanguage.allLanguages.forEach { $0.save() }
   }
 
 }

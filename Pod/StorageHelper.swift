@@ -13,7 +13,7 @@ class StorageHelper: NSObject {
   private static let domain = "Localizable"
 
   class func saveObject(object: AnyObject?, directory: String? = nil, filename: String) {
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) { () -> Void in
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
       guard let path = pathForFilename(directory, filename: filename) else {
         return
       }
