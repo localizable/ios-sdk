@@ -11,7 +11,13 @@ import Foundation
 // MARK: Instance Properties
 public class Localizable: NSObject {
 
-  /// A private static instance of Localizable for easier testing and still providing easy 
+  private struct JSONKeys {
+    static let languages = "languages"
+  }
+
+  private static let languagesFileName = "languages"
+
+  /// A private static instance of Localizable for easier testing and still providing easy
   /// integration.
   private static let sharedInstance = Localizable()
 
@@ -25,6 +31,15 @@ public class Localizable: NSObject {
 
   /// The AppLanguage object represents the default NSLocalizedString behavior for a given language
   private var appLanguage: AppLanguage = AppLanguage(code: Localizable.currentLanguageCode)
+
+  private var automaticSwitching: Bool = true
+
+  private var languageCodes: [String] =
+    StorageHelper.loadObject(filename: Localizable.languagesFileName) ?? [] {
+    didSet {
+      StorageHelper.saveObject(languageCodes, filename: Localizable.languagesFileName)
+    }
+  }
 }
 
 // MARK: API
@@ -36,8 +51,8 @@ public extension Localizable {
    missing strings and report it in the console. Will also upload language updates from editing
    .string files.
    */
-  public class func setup() {
-    Localizable.sharedInstance.setup()
+  public class func setup(automaticSwitching: Bool = true) {
+    Localizable.sharedInstance.setup(automaticSwitching)
   }
 
   /**
@@ -48,8 +63,8 @@ public extension Localizable {
 
    - parameter token: The Localizable API Token.
    */
-  public class func setup(token: String) {
-    Localizable.sharedInstance.setup(token)
+  public class func setup(token: String, automaticSwitching: Bool = true) {
+    Localizable.sharedInstance.setup(token, automaticSwitching: automaticSwitching)
   }
 
   /**
@@ -60,7 +75,8 @@ public extension Localizable {
    Receives an NSError in case something went wrong and nil otherwise.
    */
   public class func updateLanguage(completion: (NSError? -> Void)? = nil) {
-    Localizable.sharedInstance.updateLanguage(completion)
+    Localizable.sharedInstance.updateLanguage(Localizable.sharedInstance.localizableLanguage,
+                                              completion: completion)
   }
 
   /**
@@ -96,30 +112,38 @@ extension Localizable {
    missing strings and report it in the console. Will also upload language updates from editing
    .string files.
    */
-  func setup() {
+  func setup(automaticSwitching: Bool = true) {
     guard let token = AppHelper.localizableToken else {
       Logger.logError("Cannot initialize the SDK without a token, set 'LocalizableToken' on your "
         + "Info.plist file or call Localizable.setup(token: token)")
       return
     }
-    setup(token)
+    setup(token, automaticSwitching: automaticSwitching)
   }
 
   /**
-   This will setup the SDK with a given token. 
+   This will setup the SDK with a given token.
    It will also check if the App is in debug mode, in case it is, it will look for languages with
    missing strings and report it in the console. Will also upload language updates from editing
    .string files.
 
    - parameter token: The Localizable API Token.
    */
-  func setup(token: String) {
+  func setup(token: String, automaticSwitching: Bool = true) {
     self.token = token
     if AppHelper.debugMode {
       AppLanguage.printMissingStrings()
       AppLanguage.upload(token)
     }
-    updateLanguage()
+    loadLanguageCodes { [weak self] (languageCodes) in
+      guard let `self` = self else { return }
+      self.languageCodes = languageCodes ?? []
+      if automaticSwitching && self.languageCodes.contains(AppLanguage.preferredLanguageCode) {
+        self.setLanguageCode(AppLanguage.preferredLanguageCode)
+      } else {
+        self.updateLanguage(self.localizableLanguage)
+      }
+    }
   }
 }
 
@@ -130,15 +154,32 @@ extension Localizable {
    Tries to update the language by performing a Network call to the Localizable API and look for
    updated strings.
 
-   - parameter completion: Complition block called upon network request response. 
+   - parameter completion: Complition block called upon network request response.
    Receives an NSError in case something went wrong and nil otherwise.
    */
-  func updateLanguage(completion: ((NSError?) -> Void)? = nil) {
+  func updateLanguage(localizableLanguage: LocalizableLanguage,
+                      completion: ((NSError?) -> Void)? = nil) {
     guard let token = token else {
       Logger.logError("Cannot refresh without setting a token")
       return
     }
     localizableLanguage.update(token, completion: completion)
+  }
+
+  func loadLanguageCodes(completion: ([String]? -> Void)? = nil) {
+    guard let token = token else {
+      Logger.logError("Cannot load langueage codes without setting a token")
+      return
+    }
+    Network.sharedInstance
+      .performRequest(.LanguageCodes, token: token) { [weak self] (json, error) in
+        guard let `self` = self,
+          languages = json?[JSONKeys.languages] as? [String] else {
+            completion?(nil)
+            return
+        }
+        completion?(languages)
+    }
   }
 
   /**
@@ -148,16 +189,21 @@ extension Localizable {
    - parameter code: The language code in ISO format (http://bit.ly/2byDc6M)
    */
   func setLanguageCode(code: String) {
-    guard AppLanguage.availableLanguageCodes.contains(code) else {
+    let availableLanguages = (AppLanguage.availableLanguageCodes + languageCodes).unique()
+    guard availableLanguages.contains(code) else {
+
       Logger.logError("Cannot set language to \(code) because it's not one of the available " +
-        "languages: \(AppLanguage.availableLanguageCodes.joinWithSeparator(", "))")
+        "languages: \(availableLanguages.joinWithSeparator(", "))")
       return
     }
 
-    UserDefaultsHelper.currentLanguageCode = code
-    appLanguage = AppLanguage(code: code)
-    localizableLanguage = LocalizableLanguage(code: code)
-    updateLanguage()
+    let localizableLanguage = LocalizableLanguage(code: code)
+    updateLanguage(localizableLanguage) { [weak self] error in
+      guard let `self` = self else { return }
+      UserDefaultsHelper.currentLanguageCode = code
+      self.appLanguage = AppLanguage(code: code)
+      self.localizableLanguage = localizableLanguage
+    }
   }
 }
 
@@ -220,7 +266,7 @@ private extension Localizable {
   }
 }
 
-// MARK: Developer
+// MARK: Development
 extension Localizable {
 
   /**

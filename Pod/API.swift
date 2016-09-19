@@ -12,13 +12,13 @@ enum API {
 
   case UpdateLanguage(language: LocalizableLanguage)
   case UploadLanguages(languageDeltas: [AppLanguageDelta])
-  case Usage(code: String)
+  case LanguageCodes
 
   var method: Method {
     switch self {
-    case .UpdateLanguage:
+    case .UpdateLanguage, .LanguageCodes:
       return .GET
-    case .Usage, .UploadLanguages:
+    case .UploadLanguages:
       return .POST
     }
   }
@@ -27,8 +27,8 @@ enum API {
     switch self {
     case .UpdateLanguage(let language):
       return "languages/\(language.code)"
-    case .Usage(let code):
-      return "usage/\(code)"
+    case .LanguageCodes:
+      return "languages/platforms/ios"
     case .UploadLanguages:
       return "languages"
     }
@@ -38,13 +38,13 @@ enum API {
     switch self {
     case .UpdateLanguage(let language):
       return ["modified_at": language.modifiedAt]
-    case .Usage:
-      return nil
     case .UploadLanguages(let diff):
       return [
         "languages": diff.map { $0.json },
         "app": AppHelper.json,
         "platform": "ios"]
+    default:
+      return nil
     }
   }
 
@@ -58,7 +58,11 @@ enum API {
           "Testing": "Ay ay ay caramba \(language.modifiedAt)"
         ]
       ]
-    case .Usage, .UploadLanguages:
+    case .LanguageCodes:
+      return [
+        "languages": ["en", "base", "en-US"]
+      ]
+    case .UploadLanguages:
       return nil
     }
   }

@@ -27,13 +27,12 @@ final class AppLanguage: Language {
   }
 
   convenience init(code: String) {
-    self.init(code: code, strings: AppHelper.stringsForLanguageCode(code))
+    self.init(code: code, strings: AppHelper.stringsForLanguageCode(AppLanguage.languageCode(code)))
   }
 
   func save() {
     StorageHelper.saveObject(json, directory: AppLanguage.directory, filename: code)
   }
-
 }
 
 // MARK: Accessors
@@ -41,6 +40,10 @@ extension AppLanguage {
 
   static var availableLanguageCodes: [String] {
     return NSBundle.mainBundle().localizations
+  }
+
+  static var preferredLanguageCode: String {
+    return NSLocale.preferredLanguages()[0]
   }
 
   static var allLanguages: [AppLanguage] {
@@ -51,6 +54,23 @@ extension AppLanguage {
 
 // MARK: Helpers
 extension AppLanguage {
+
+  private static func languageCode(code: String) -> String {
+    if availableLanguageCodes.contains(code) {
+      return code
+    }
+    let languageCode = code.substringToIndex(code.startIndex.advancedBy(2))
+
+    if availableLanguageCodes.contains(languageCode) {
+      return languageCode
+    }
+
+    let countrySpecificLanguageCodes = availableLanguageCodes.filter { $0.hasPrefix(languageCode) }
+    if countrySpecificLanguageCodes.count > 0 {
+      return countrySpecificLanguageCodes[0]
+    }
+    return availableLanguageCodes[0]
+  }
 
   static func printMissingStrings() {
     let allLanguages = AppLanguage.allLanguages
